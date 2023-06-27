@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/dashboard1\.php$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ login.php [L]
