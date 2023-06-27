@@ -314,6 +314,7 @@
             <ul class="box-info">
                 
                 <li>
+                    
                     <?php
                     // Assuming you have a database connection already established
                     $host = 'localhost';
