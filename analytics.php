@@ -301,6 +301,7 @@
                     </span>
                 </li>
                 <li>
+
                     <span class="text">
                         <h3><?php echo $totalInvalid; ?></h3>
                         <p>Tidak Valid</p>
