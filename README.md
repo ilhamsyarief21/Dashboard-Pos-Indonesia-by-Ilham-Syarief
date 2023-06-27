@@ -9,7 +9,7 @@ Dashboard WhiteMode :
 
 ![WhatsApp Image 2023-06-27 at 11 44 42](https://github.com/ilhamsyarief21/Dashboard-Pos-Indonesia-by-Ilham-Syarief/assets/115606564/e89ebae4-0447-45bc-82c1-674457cc2892)
 
-Dashboard DarkMode
+Dashboard DarkMode: 
 ![WhatsApp Image 2023-06-27 at 11 34 48](https://github.com/ilhamsyarief21/Dashboard-Pos-Indonesia-by-Ilham-Syarief/assets/115606564/c38d37be-df53-42e6-8e79-63b619533aa4)
 
 ![Alt text](image.png)
