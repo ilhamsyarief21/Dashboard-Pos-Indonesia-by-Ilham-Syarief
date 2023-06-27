@@ -12,7 +12,7 @@ Dashboard WhiteMode :
 Dashboard DarkMode
 ![WhatsApp Image 2023-06-27 at 11 34 48](https://github.com/ilhamsyarief21/Dashboard-Pos-Indonesia-by-Ilham-Syarief/assets/115606564/c38d37be-df53-42e6-8e79-63b619533aa4)
 
-![WhatsApp Image 2023-06-27 at 11 46 36](https://github.com/ilhamsyarief21/Dashboard-Pos-Indonesia-by-Ilham-Syarief/assets/115606564/44ad6104-bea1-4b77-bf18-a50cc0681b58)
+![Alt text](image.png)
 
 Dashboard bagian Table Penyaluran Beras (White Mode) : ![image](https://github.com/ilhamsyarief21/Dashboard-Pos-Indonesia-by-Ilham-Syarief/assets/115606564/7e33bff8-9ecf-41a0-b383-aca8f0c86de8)
 Dashboard bagian Table Penyaluran Beras (DarkMode) : ![image](https://github.com/ilhamsyarief21/Dashboard-Pos-Indonesia-by-Ilham-Syarief/assets/115606564/fbbdbe62-d59e-4268-b169-f3b73c6ae20a)
