@@ -310,6 +310,7 @@
                     </span>
                 </li>
             </ul>
+            
             <ul class="box-info">
                 
                 <li>
