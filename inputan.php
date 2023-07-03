@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-        .container {
+    .container {
         font-family: 'Poppins', sans-serif;
         float: left;
         margin-right: 20px;
@@ -10,37 +10,38 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        }
+    }
 
-        .container ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    .container ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-        .container li {
-            margin-bottom: 10px;
-        }
+    .container li {
+        margin-bottom: 10px;
+    }
 
-        .container label {
-            display: block;
-            margin-bottom: 5px;
-        }
+    .container label {
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        .container input[type="text"],
-        .container input[type="datetime-local"],
-        .container input[type="submit"] {
-            width: 100vw;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: 'Poppins', sans-serif;
-        }
+    .container input[type="text"],
+    .container input[type="datetime-local"],
+    .container input[type="submit"] {
+        width: 78vw;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+    }
 
-        .container input[type="submit"] {
-            background-color: #ff6600;
-            color: white;
-            cursor: pointer;
-        }
+    .container input[type="submit"] {
+        background-color: #ff6600;
+        color: white;
+        cursor: pointer;
+    }
+
     </style>
 </head>
 <body>
@@ -99,19 +100,19 @@
                     </li>
                     <li>
                         <label for="link_foto_ktp_tahap1">LINK_FOTO_KTP_tahap1</label>
-                        <input type="text" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" required>
+                        <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
                         <label for="link_foto_penerima_tahap1">LINK_FOTO_PENERIMA_tahap1</label>
-                        <input type="text" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" required>
+                        <input type="file" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
                         <label for="link_foto_ktp_tahap2">LINK_FOTO_KTP_tahap2</label>
-                        <input type="text" id="link_foto_ktp_tahap2" name="link_foto_ktp_tahap2" required>
+                        <input type="file" id="link_foto_ktp_tahap2" name="link_foto_ktp_tahap2" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
                         <label for="link_foto_penerima_tahap2">LINK_FOTO_PENERIMA_tahap2</label>
-                        <input type="text" id="link_foto_penerima_tahap2" name="link_foto_penerima_tahap2" required>
+                        <input type="file" id="link_foto_penerima_tahap2" name="link_foto_penerima_tahap2" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
                         <input type="submit" name="submit" value="Submit">

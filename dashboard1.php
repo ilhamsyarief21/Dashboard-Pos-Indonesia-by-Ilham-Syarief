@@ -52,6 +52,7 @@ redirectToLogin();
 
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="1.png" type="image/png">
 
     <title>Kantor Pos - Dashboard</title>
     <style>
