@@ -1,3 +1,44 @@
+<?php
+// Start the session (if not started)
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Function to check if the user is logged in
+function isLoggedIn()
+{
+    return isset($_SESSION['username']);
+}
+
+// Function to redirect to the login page if the user is not logged in
+function redirectToLogin()
+{
+    if (!isLoggedIn()) {
+        header("Location: login1.php");
+        exit();
+    }
+}
+
+// Function to logout the user
+function logout()
+{
+    // Clear the session data
+    session_unset();
+    session_destroy();
+
+    // Redirect to the login page
+    header("Location: login1.php");
+    exit();
+}
+
+// Call this function at the beginning of your dashboard page
+redirectToLogin();
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,6 +126,7 @@
 </head>
 
 <body>
+    
 
 
     <!-- SIDEBAR -->
@@ -181,6 +223,7 @@
 
                     <span class="text">
                         <h3>
+                            
                             <?php
                             // Assuming you have a database connection already established
                             $host = 'localhost';
@@ -499,6 +542,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+
+
 document.addEventListener("DOMContentLoaded", function() {
     // Retrieve the data from PHP
     const dates = <?php echo json_encode($dates); ?>;
@@ -668,13 +713,6 @@ switchMode.addEventListener("change", function() {
 });
 
 
-function logout() {
-    // Perform any necessary logout actions here
-    // For example, clearing session data or redirecting to a login page
-
-    // Reload the current page after logout
-    location.reload();
-}
 
 
 

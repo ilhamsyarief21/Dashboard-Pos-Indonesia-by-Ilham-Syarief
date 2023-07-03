@@ -1,5 +1,5 @@
+
 <?php
-// Memulai session
 session_start();
 
 // Koneksi ke database
@@ -26,7 +26,11 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $hashedPassword)) {
             // Login berhasil
             // Set session sebagai tanda bahwa pengguna sudah login
+            // Set the username in session after successful login
+            $_SESSION['username'] = $username;
+
             $_SESSION["logged_in"] = true;
+            
 
             // Redirect ke halaman dashboard1.php
             header("Location: dashboard1.php");
@@ -41,14 +45,8 @@ if (isset($_POST['login'])) {
     }
 }
 
-// Mengecek apakah pengguna sudah login
-if (!isset($_SESSION["logged_in"])) {
-  // Jika pengguna belum login, redirect ke halaman login.php atau halaman lain yang Anda inginkan
-  header("Location: login.php");
-  exit();
-}
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -218,48 +216,7 @@ if (!isset($_SESSION["logged_in"])) {
   </div>
   
   
-  <!-- <?php
-  
 
-  // Koneksi ke database
-  $host = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "pdb";
-  $conn = mysqli_connect($host, $username, $password, $database);
-
-  // Memproses data yang di-submit saat login
-  if (isset($_POST['login'])) {
-      $username = $_POST['username'];
-      $password = $_POST['password'];
-
-      // Mengecek data pengguna di database
-      $query = "SELECT * FROM user1 WHERE username='$username'";
-      $result = mysqli_query($conn, $query);
-
-      if (mysqli_num_rows($result) > 0) {
-          $row = mysqli_fetch_assoc($result);
-          $hashedPassword = $row['password'];
-
-          // Memverifikasi password
-          if (password_verify($password, $hashedPassword)) {
-              // Login berhasil
-              // Set session sebagai tanda bahwa pengguna sudah login
-              $_SESSION["logged_in"] = true;
-
-              // Redirect ke halaman dashboard.php
-              header("Location: dashboard1.php");
-              exit();
-          } else {
-              // Login gagal
-              echo "<script>alert('Username atau password salah!');</script>";
-          }
-      } else {
-          // Login gagal
-          echo "<script>alert('Username atau password salah!');</script>";
-      }
-  }
-  ?> -->
   
 
 
