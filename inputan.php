@@ -94,10 +94,16 @@
                         <label for="status_cekpos">STATUS CEKPOS</label>
                         <input type="text" id="status_cekpos" name="status_cekpos" required>
                     </li>
+                    <?php
+                        date_default_timezone_set('Asia/Jakarta');
+                        $tanggalCair = date("Y-m-d\TH:i");
+                        
+                    ?>
                     <li>
                         <label for="tanggal_cair">TANGGAL CAIR</label>
-                        <input type="datetime-local" id="tanggal_cair" name="tanggal_cair" required>
+                        <input type="datetime-local" id="tanggal_cair" name="tanggal_cair" value="<?php echo $tanggalCair; ?>" required readonly>
                     </li>
+
                     <li>
                         <label for="link_foto_ktp_tahap1">LINK FOTO KTP TAHAP 1</label>
                         <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" style="width: 78vw;" required>
