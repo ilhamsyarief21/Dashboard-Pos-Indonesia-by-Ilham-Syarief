@@ -104,6 +104,15 @@
             <div class="head-title">
                 <div class="left">
                     <h1>Tabel Penyaluran Beras</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Tampilan Tabel Penyaluran Beras</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a class="active" href="dashboard1.php">Home</a>
+                        </li>
+                    </ul>
 
                 </div>
             </div>
@@ -315,61 +324,61 @@
             
 
             <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>Data Provinsi Penyaluran Beras</h3>
-                    </div>
-                    <table id="data-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nama Provinsi</th>
-                            </tr>
-                        </thead>
-                        <!-- Pop-up -->
-                        
-
-                        <tbody>
-                            <?php
-                            // Assuming you have a database connection already established
-                            $host = 'localhost';
-                            $username = 'root';
-                            $password = '';
-                            $database = 'pdb';
-
-                            $connection = mysqli_connect($host, $username, $password, $database);
-
-                            // Check if the connection was successful
-                            if (!$connection) {
-                                die("Connection failed: " . mysqli_connect_error());
-                            }
-
-                            // Query to fetch data from the database table "pdb"
-                            $query = "SELECT id, provinsi FROM prov";
-
-                            $result = mysqli_query($connection, $query);
-
-                            if (mysqli_num_rows($result) > 0) {
-                                // Loop through each row of data
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    // Display the data in the table
-                                    echo "<tr>";
-                                    echo "<td>" . $row['id'] . "</td>";
-                                    echo "<td>" . $row['provinsi'] . "</td>";
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='3'>No records found</td></tr>";
-                            }
-
-                            // Close the database connection
-                            mysqli_close($connection);
-                            ?>
-                            
-                        </tbody>
-                    </table>
+            <div class="order">
+                <div class="head">
+                    <h3>Data Provinsi Penyaluran Beras</h3>
                 </div>
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama Provinsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // Assuming you have a database connection already established
+                        $host = 'localhost';
+                        $username = 'root';
+                        $password = '';
+                        $database = 'pdb';
+
+                        $connection = mysqli_connect($host, $username, $password, $database);
+
+                        // Check if the connection was successful
+                        if (!$connection) {
+                            die("Connection failed: " . mysqli_connect_error());
+                        }
+
+                        // Pagination variables
+                        $perPage = 10; // Number of rows to display per page
+                        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1; // Current page (default to 1)
+                        $startFrom = ($currentPage - 1) * $perPage; // Start index of rows to fetch
+
+                        // Query to fetch data from the database table "prov"
+                        $query = "SELECT id, provinsi FROM prov LIMIT $startFrom, $perPage";
+                        $result = mysqli_query($connection, $query);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            // Loop through each row of data
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                // Display the data in the table
+                                echo "<tr>";
+                                echo "<td>" . $row['id'] . "</td>";
+                                echo "<td>" . $row['provinsi'] . "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='2'>No records found</td></tr>";
+                        }
+
+                    
+                        ?>
+                    </tbody>
+                </table>
             </div>
+        </div>
+
             <script>
         function exportToExcel() {
             // Get the table element
