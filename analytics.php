@@ -257,13 +257,7 @@
             </ul>
             <ul>
             
-            <div class="box-info">
-                <ul>
-                    <li>
-                
-                    </li>
-                </ul>
-            </div>
+            
             <ul class="box-info">
                 
                 <li>
@@ -320,6 +314,13 @@
                     </span>
                 </li>
             </ul>
+            <div class="box-info">
+                <ul>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
 
             
 

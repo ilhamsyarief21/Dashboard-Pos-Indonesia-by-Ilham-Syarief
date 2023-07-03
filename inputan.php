@@ -3,13 +3,13 @@
 <head>
     <style>
     .container {
-        font-family: 'Poppins', sans-serif;
-        float: left;
-        margin-right: 20px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    font-family: 'Poppins', sans-serif;
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     }
 
     .container ul {
@@ -41,6 +41,18 @@
         color: white;
         cursor: pointer;
     }
+    .container input[type="text"],
+    .container input[type="datetime-local"],
+    .container input[type="submit"],
+    .container select {
+        width: 78vw;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+
 
     </style>
 </head>
@@ -78,21 +90,82 @@
                         <label for="alamat">ALAMAT</label>
                         <input type="text" id="alamat" name="alamat" required>
                     </li>
-                    <li>
+                    <?php
+                            function generateResiNumber() {
+                                // Mendapatkan tanggal dan waktu saat ini
+                                $currentDateTime = new DateTime();
+                                // Menghasilkan nomor resi menggunakan timestamp
+                                $resiNumber = 'PDB' . $currentDateTime->format('YmdHis');
+                                
+                                return $resiNumber;
+                            }
+
+                            // Mengecek apakah ada data yang dikirimkan melalui metode POST
+                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                // Jika ada data yang dikirimkan, kita tetap menggunakan nomor resi yang ada
+                                $nomorResi = $_POST['nomor_resi'];
+                            } else {
+                                // Jika tidak ada data yang dikirimkan, kita menghasilkan nomor resi baru
+                                $nomorResi = generateResiNumber();
+                            }
+                            ?>
+
+                            <!-- Menggunakan nilai nomor resi sebagai nilai default pada input -->
+                     <li>
                         <label for="nomor_resi">NOMOR RESI</label>
-                        <input type="text" id="nomor_resi" name="nomor_resi" required>
-                    </li>
-                    <li>
+                        <input type="text" id="nomor_resi" name="nomor_resi" value="<?php echo $nomorResi; ?>" readonly required>
+                     </li>
+                     <li>
                         <label for="nopend">NOPEND</label>
                         <input type="text" id="nopend" name="nopend" required>
                     </li>
                     <li>
                         <label for="kcu_kc">KCU KC</label>
-                        <input type="text" id="kcu_kc" name="kcu_kc" required>
-                    </li>
+                        <select id="kcu_kc" name="kcu_kc" required>
+                            <option value="">Pilih Kota</option>
+                            <option value="Aceh">Aceh</option>
+                            <option value="Bali">Bali</option>
+                            <option value="Bangka Belitung">Bangka Belitung</option>
+                            <option value="Banten">Banten</option>
+                            <option value="Bengkulu">Bengkulu</option>
+                            <option value="Gorontalo">Gorontalo</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Jambi">Jambi</option>
+                            <option value="Jawa Barat">Jawa Barat</option>
+                            <option value="Jawa Tengah">Jawa Tengah</option>
+                            <option value="Jawa Timur">Jawa Timur</option>
+                            <option value="Kalimantan Barat">Kalimantan Barat</option>
+                            <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                            <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                            <option value="Kalimantan Timur">Kalimantan Timur</option>
+                            <option value="Kalimantan Utara">Kalimantan Utara</option>
+                            <option value="Kepulauan Riau">Kepulauan Riau</option>
+                            <option value="Lampung">Lampung</option>
+                            <option value="Maluku">Maluku</option>
+                            <option value="Maluku Utara">Maluku Utara</option>
+                            <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                            <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                            <option value="Papua">Papua</option>
+                            <option value="Papua Barat">Papua Barat</option>
+                            <option value="Riau">Riau</option>
+                            <option value="Sulawesi Barat">Sulawesi Barat</option>
+                            <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                            <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                            <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                            <option value="Sulawesi Utara">Sulawesi Utara</option>
+                            <option value="Sumatra Barat">Sumatra Barat</option>
+                            <option value="Sumatra Selatan">Sumatra Selatan</option>
+                            <option value="Sumatra Utara">Sumatra Utara</option>
+                            <option value="Yogyakarta">Yogyakarta</option>
+                            <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
+                        </select>
+                        </li>
                     <li>
-                        <label for="status_cekpos">STATUS CEKPOS</label>
-                        <input type="text" id="status_cekpos" name="status_cekpos" required>
+                    <label for="status_cekpos">STATUS CEKPOS</label>
+                    <select id="status_cekpos" name="status_cekpos" required>
+                        <option value="DIBAYAR">DIBAYAR</option>
+                        <option value="BELUM DIBAYAR">BELUM DIBAYAR</option>
+                    </select>
                     </li>
                     <?php
                         date_default_timezone_set('Asia/Jakarta');
