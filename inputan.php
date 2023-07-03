@@ -51,6 +51,57 @@
         border-radius: 4px;
         font-family: 'Poppins', sans-serif;
     }
+    .file-input {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .file-input input[type="file"] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .file-input-label {
+        background-color: #ff6600;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .container .file-input {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 78vw;
+    }
+
+    .container .file-input input[type="file"] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+    }
+
+    .container .file-input-label {
+        background-color: #ff6600;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    .file-input:hover .file-input-label {
+        background-color: #b84e07; /* Ubah warna latar belakang saat dihover */
+    }
 
 
 
@@ -178,22 +229,30 @@
                     </li>
 
                     <li>
-                        <label for="link_foto_ktp_tahap1">LINK FOTO KTP TAHAP 1</label>
-                        <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" style="width: 78vw;" required>
+                        <div class="file-input">
+                            <label for="link_foto_ktp_tahap1" class="file-input-label">LINK FOTO KTP TAHAP 1</label>
+                            <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" required>
+                        </div>
                     </li>
                     <li>
-                        <label for="link_foto_penerima_tahap1">LINK FOTO PENERIMA TAHAP1</label>
-                        <input type="file" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" accept="image/*" capture="camera" style="width: 78vw;" required>
+                        <div class="file-input">
+                            <label for="link_foto_penerima_tahap1" class="file-input-label">LINK FOTO PENERIMA TAHAP 1</label>
+                            <input type="file" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" accept="image/*" capture="camera" required>
+                        </div>
                     </li>
                     <li>
-                        <label for="link_foto_ktp_tahap2">LINK FOTO KTP TAHAP 2</label>
-                        <input type="file" id="link_foto_ktp_tahap2" name="link_foto_ktp_tahap2" accept="image/*" capture="camera" style="width: 78vw;" required>
+                        <div class="file-input">
+                            <label for="link_foto_ktp_tahap2" class="file-input-label">LINK FOTO KTP TAHAP 2</label>
+                            <input type="file" id="link_foto_ktp_tahap2" name="link_foto_ktp_tahap2" accept="image/*" capture="camera" required>
+                        </div>
                     </li>
                     <li>
-                        <label for="link_foto_penerima_tahap2">LINK FOTO PENERIMA TAHAP 2</label>
-                        <input type="file" id="link_foto_penerima_tahap2" name="link_foto_penerima_tahap2" accept="image/*" capture="camera" style="width: 78vw;" required>
+                        <div class="file-input">
+                            <label for="link_foto_penerima_tahap2" class="file-input-label">LINK FOTO PENERIMA TAHAP 2</label>
+                            <input type="file" id="link_foto_penerima_tahap2" name="link_foto_penerima_tahap2" accept="image/*" capture="camera" required>
+                        </div>
                     </li>
-                    <li>
+
                         <input type="submit" name="submit" value="Submit">
                     </li>
                 </ul>
