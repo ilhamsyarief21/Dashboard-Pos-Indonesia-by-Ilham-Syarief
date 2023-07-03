@@ -59,7 +59,7 @@ redirectToLogin();
             color: black;
         }
         .dark .status {
-            color: #fff;
+            color: black;
         }   
 
         .status {
@@ -109,7 +109,7 @@ redirectToLogin();
         }
 
         input[type="checkbox"][id="switch-mode"]:checked+label.switch-mode {
-            background-color: #5f9ea0;
+            background-color: ddddd;
         }
 
         input[type="checkbox"][id="switch-mode"]:checked+label.switch-mode:before {
@@ -123,6 +123,15 @@ redirectToLogin();
         .side-menu li.active a {
             color: orange;
         }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        }
+        #nama {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        }
+
         table {
         border-collapse: collapse;
         width: 100%;
@@ -131,9 +140,9 @@ redirectToLogin();
             text-align: left;
             padding: 8px;
         }
-        tr:nth-child(even) {
+        /* tr:nth-child(even) {
             background-color: #f2f2f2;
-        }
+        } */
         input[type="text"],
         input[type="date"] {
             padding: 5px;
@@ -160,6 +169,43 @@ redirectToLogin();
         #clearButton:hover {
         opacity: 0.8;
         }
+
+        .pagination {
+        margin-top: 10px;
+        text-align: center;
+        }
+
+        .pagination a {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #ff6600;
+        color: white;
+        text-decoration: none;
+        margin-right: 5px;
+        }
+
+        .pagination a:hover {
+        background-color: #ff8000;
+        }
+
+        .pagination .prev,
+        .pagination .next {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #ff6600;
+        color: white;
+        text-decoration: none;
+        }
+
+        .pagination .prev:hover,
+        .pagination .next:hover {
+        background-color: #ff8000;
+        }
+
+
+
     </style>
 </head>
 
@@ -184,7 +230,7 @@ redirectToLogin();
 
         <li>
         <a href="#" id="analytics-link">
-            <i class='bx bxs-doughnut-chart'></i>
+            <i class='bx bx-table'></i>
             <span class="text">Tabel Penyaluran Beras</span>
         </a>
         </li>
@@ -192,8 +238,8 @@ redirectToLogin();
 
         <li>
             <a href="#">
-                <i class='bx bxs-group'></i>
-                <span class="text">Team</span>
+                <i class='bx bxs-folder-plus'></i>
+                <span class="text">Input</span>
             </a>
         </li>
     </ul>
@@ -341,58 +387,6 @@ redirectToLogin();
                         <p>Jumlah Penerima Beras</p>
                     </span>
                 </li>
-                <li>
-                    <i class='bx bxs-dollar-circle'></i>
-                    
-                    <span class="text">
-                        <h3>
-                        <span class="text">
-                        <h3><?php echo getLoggedInUserCount(); ?></h3>
-                      
-                        </span>
-
-                            <?php
-                      
-
-                            function getLoggedInUserCount()
-                            {
-                                // Assuming you have a database connection already established
-                                $host = 'localhost';
-                                $username = 'root';
-                                $password = '';
-                                $database = 'pdb';
-                            
-                                $connection = mysqli_connect($host, $username, $password, $database);
-                            
-                                // Check if the connection was successful
-                                if (!$connection) {
-                                    die("Connection failed: " . mysqli_connect_error());
-                                }
-                            
-                                // Query to fetch the count of logged-in users
-                                $query = "SELECT COUNT(*) as total_logged_in_users FROM user1 WHERE username = 1";
-                            
-                                $result = mysqli_query($connection, $query);
-                            
-                                $loggedInUserCount = 0;
-                            
-                                if (mysqli_num_rows($result) > 0) {
-                                    // Fetch the count of logged-in users
-                                    $row = mysqli_fetch_assoc($result);
-                                    $loggedInUserCount = $row['total_logged_in_users'];
-                                }
-                            
-                                // Close the database connection
-                                mysqli_close($connection);
-                            
-                                return $loggedInUserCount;
-                            }
-                            
-                            ?>
-                        </h3>
-                        <p>Total Akun Yang Login</p>
-                    </span>
-                </li>
             </ul>
             
             <ul class="box-info">
@@ -467,12 +461,12 @@ redirectToLogin();
                         <input type="date" id="end_date" name="end_date" />
                         <input type="submit" name="submit" value="Filter" />
                         <button id="clearButton" onclick="clearFilters()"><i class="fas fa-times"></i> Clear</button>
-                        
                     </form>
-                    
+
                     <table id="data-table">
                         <thead>
                             <tr>
+                                <th>No.</th>
                                 <th>NAMA</th>
                                 <th>NIK</th>
                                 <th>TANGGAL CAIR</th>
@@ -480,10 +474,9 @@ redirectToLogin();
                                 <th>KETERANGAN</th>
                             </tr>
                         </thead>
-                        <!-- Pop-up -->
 
                         <tbody>
-                            <?php
+                        <?php
                             // Assuming you have a database connection already established
                             $host = 'localhost';
                             $username = 'root';
@@ -497,45 +490,86 @@ redirectToLogin();
                                 die("Connection failed: " . mysqli_connect_error());
                             }
 
+                            // Pagination variables
+                            $resultsPerPage = 10; // Number of results to display per page
+                            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page number
+
                             // Handle search and date range filter
                             if (isset($_POST['submit'])) {
                                 $search = $_POST['search'];
                                 $startDate = $_POST['start_date'];
                                 $endDate = $_POST['end_date'];
 
+                                $queryCount = "SELECT COUNT(*) as total FROM pdb WHERE NAMA LIKE '%$search%'";
+
                                 $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb WHERE NAMA LIKE '%$search%'";
 
                                 // If start date and end date are provided, add them to the query
                                 if (!empty($startDate) && !empty($endDate)) {
+                                    $queryCount .= " AND TANGGAL_CAIR BETWEEN '$startDate' AND '$endDate'";
                                     $query .= " AND TANGGAL_CAIR BETWEEN '$startDate' AND '$endDate'";
                                 }
                             } else {
+                                $queryCount = "SELECT COUNT(*) as total FROM pdb";
                                 $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb";
                             }
+
+                            // Get the total number of records
+                            $countResult = mysqli_query($connection, $queryCount);
+                            $totalRecords = mysqli_fetch_assoc($countResult)['total'];
+
+                            // Calculate the total number of pages
+                            $totalPages = ceil($totalRecords / $resultsPerPage);
+
+                            // Calculate the offset for the current page
+                            $offset = ($currentPage - 1) * $resultsPerPage;
+
+                            // Add pagination to the query
+                            $query .= " LIMIT $offset, $resultsPerPage";
 
                             $result = mysqli_query($connection, $query);
 
                             if (mysqli_num_rows($result) > 0) {
                                 // Loop through each row of data
+                                $counter = $offset + 1;
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     // Display the data in the table
                                     echo "<tr>";
+                                    echo "<td>" . $counter . "</td>";
                                     echo "<td>" . $row['NAMA'] . "</td>";
                                     echo "<td>" . $row['NIK'] . "</td>";
                                     echo "<td>" . $row['TANGGAL_CAIR'] . "</td>";
                                     echo "<td class='status'>" . $row['status1'] . "</td>";
                                     echo "<td>" . $row['keterangan'] . "</td>";
                                     echo "</tr>";
+                                    $counter++;
                                 }
                             } else {
-                                echo "<tr><td colspan='5'>No records found</td></tr>";
+                                echo "<tr><td colspan='6'>No records found</td></tr>";
                             }
 
-                            // Close the database connection
-                            mysqli_close($connection);
+                           
                             ?>
+                   
+
                         </tbody>
                     </table>
+                    <?php
+                     // Generate pagination links
+                     echo "<div class='pagination'>";
+                     if ($currentPage > 1) {
+                         echo "<a href='?page=" . ($currentPage - 1) . "'>&laquo; Prev</a>";
+                     }
+                     for ($i = 1; $i <= $totalPages; $i++) {
+                         echo "<a " . ($i == $currentPage ? "class='active'" : "") . " href='?page=$i'>$i</a>";
+                     }
+                     if ($currentPage < $totalPages) {
+                         echo "<a href='?page=" . ($currentPage + 1) . "'>Next &raquo;</a>";
+                     }
+                     echo "</div>";
+
+                     // Close the database connection
+                     mysqli_close($connection);?>
                 </div>
             </div>
 
@@ -751,7 +785,7 @@ teamMenu.addEventListener("click", function() {
             mainContent.innerHTML = xhr.responseText;
         }
     };
-    xhr.open("GET", "search5.php", true);
+    xhr.open("GET", "inputan.php", true);
     xhr.send();
 
     // Hapus class "active" dari menu "Dashboard" dan "Analytics"

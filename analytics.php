@@ -166,7 +166,7 @@
                     </span>
                 </li>
                 <li>
-                    <i class='bx bxs-calendar-check'></i>
+                    <i class='bx bx-world' ></i>
                     <span class="text">
                         <h3>
                             <?php
@@ -247,6 +247,7 @@
                 </li>
             </ul>
             <ul>
+            
             <div class="box-info">
                 <ul>
                     <li>
