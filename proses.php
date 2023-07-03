@@ -39,4 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Menutup koneksi ke database
 $conn->close();
+header("Location: dashboard1.php");
+exit;
 ?>
