@@ -91,6 +91,7 @@
 
 
 
+
     </style>
 </head>
 
@@ -246,12 +247,13 @@
                 </li>
             </ul>
             <ul>
-            <ul class="box-info">
-                <li>
-                    
-                            
-                </li>
-            </ul>
+            <div class="box-info">
+                <ul>
+                    <li>
+                
+                    </li>
+                </ul>
+            </div>
             <ul class="box-info">
                 
                 <li>

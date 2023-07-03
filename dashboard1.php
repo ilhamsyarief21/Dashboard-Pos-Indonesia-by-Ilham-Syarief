@@ -121,7 +121,31 @@ redirectToLogin();
         .side-menu li.active a {
             color: orange;
         }
-
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type="text"],
+        input[type="date"] {
+            padding: 5px;
+            width: 150px;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -417,6 +441,12 @@ redirectToLogin();
                     <div class="head">
                         <h3>Data Penyaluran Beras</h3>
                     </div>
+                    <form method="POST" action="">
+                        <input type="text" name="search" placeholder="Cari Nama" />
+                        <input type="date" name="start_date" />
+                        <input type="date" name="end_date" />
+                        <input type="submit" name="submit" value="Filter" />
+                    </form>
                     <table id="data-table">
                         <thead>
                             <tr>
@@ -425,7 +455,6 @@ redirectToLogin();
                                 <th>TANGGAL CAIR</th>
                                 <th>STATUS</th>
                                 <th>KETERANGAN</th>
-                               
                             </tr>
                         </thead>
                         <!-- Pop-up -->
@@ -445,8 +474,21 @@ redirectToLogin();
                                 die("Connection failed: " . mysqli_connect_error());
                             }
 
-                            // Query to fetch data from the database table "pdb"
-                            $query = "SELECT NIK, NAMA, TANGGAL_CAIR,status1,keterangan FROM pdb";
+                            // Handle search and date range filter
+                            if (isset($_POST['submit'])) {
+                                $search = $_POST['search'];
+                                $startDate = $_POST['start_date'];
+                                $endDate = $_POST['end_date'];
+
+                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb WHERE NAMA LIKE '%$search%'";
+
+                                // If start date and end date are provided, add them to the query
+                                if (!empty($startDate) && !empty($endDate)) {
+                                    $query .= " AND TANGGAL_CAIR BETWEEN '$startDate' AND '$endDate'";
+                                }
+                            } else {
+                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb";
+                            }
 
                             $result = mysqli_query($connection, $query);
 
@@ -460,11 +502,10 @@ redirectToLogin();
                                     echo "<td>" . $row['TANGGAL_CAIR'] . "</td>";
                                     echo "<td class='status'>" . $row['status1'] . "</td>";
                                     echo "<td>" . $row['keterangan'] . "</td>";
-                                  
                                     echo "</tr>";
                                 }
                             } else {
-                                echo "<tr><td colspan='3'>No records found</td></tr>";
+                                echo "<tr><td colspan='5'>No records found</td></tr>";
                             }
 
                             // Close the database connection
@@ -474,6 +515,8 @@ redirectToLogin();
                     </table>
                 </div>
             </div>
+
+
             <div class="table-data">
                 <div class="order">
                     <div class="head">
