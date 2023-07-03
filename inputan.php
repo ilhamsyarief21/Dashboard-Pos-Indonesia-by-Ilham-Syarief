@@ -87,31 +87,31 @@
                         <input type="text" id="nopend" name="nopend" required>
                     </li>
                     <li>
-                        <label for="kcu_kc">KCU_KC</label>
+                        <label for="kcu_kc">KCU KC</label>
                         <input type="text" id="kcu_kc" name="kcu_kc" required>
                     </li>
                     <li>
-                        <label for="status_cekpos">STATUS_CEKPOS</label>
+                        <label for="status_cekpos">STATUS CEKPOS</label>
                         <input type="text" id="status_cekpos" name="status_cekpos" required>
                     </li>
                     <li>
-                        <label for="tanggal_cair">TANGGAL_CAIR</label>
+                        <label for="tanggal_cair">TANGGAL CAIR</label>
                         <input type="datetime-local" id="tanggal_cair" name="tanggal_cair" required>
                     </li>
                     <li>
-                        <label for="link_foto_ktp_tahap1">LINK_FOTO_KTP_tahap1</label>
+                        <label for="link_foto_ktp_tahap1">LINK FOTO KTP TAHAP 1</label>
                         <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
-                        <label for="link_foto_penerima_tahap1">LINK_FOTO_PENERIMA_tahap1</label>
+                        <label for="link_foto_penerima_tahap1">LINK FOTO PENERIMA TAHAP1</label>
                         <input type="file" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
-                        <label for="link_foto_ktp_tahap2">LINK_FOTO_KTP_tahap2</label>
+                        <label for="link_foto_ktp_tahap2">LINK FOTO KTP TAHAP 2</label>
                         <input type="file" id="link_foto_ktp_tahap2" name="link_foto_ktp_tahap2" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
-                        <label for="link_foto_penerima_tahap2">LINK_FOTO_PENERIMA_tahap2</label>
+                        <label for="link_foto_penerima_tahap2">LINK FOTO PENERIMA TAHAP 2</label>
                         <input type="file" id="link_foto_penerima_tahap2" name="link_foto_penerima_tahap2" accept="image/*" capture="camera" style="width: 78vw;" required>
                     </li>
                     <li>
