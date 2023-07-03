@@ -48,6 +48,8 @@ redirectToLogin();
 
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css">
 
@@ -146,6 +148,18 @@ redirectToLogin();
             border-radius: 5px;
             cursor: pointer;
         }
+        #clearButton {
+        background-color: #ff6600;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        }
+
+        #clearButton:hover {
+        opacity: 0.8;
+        }
     </style>
 </head>
 
@@ -174,7 +188,7 @@ redirectToLogin();
             <span class="text">Tabel Penyaluran Beras</span>
         </a>
         </li>
-        
+
 
         <li>
             <a href="#">
@@ -238,9 +252,11 @@ redirectToLogin();
                 </div>
                 <a href="#" class="btn-download" onclick="exportToExcel()">
                     <i class='bx bxs-cloud-download'></i>
-                    <span class="text">Download Excel</span>
+                    <span class="text">Download CSV</span>
                 </a>
+                
             </div>
+            
 
             <ul class="box-info">
                 <li>
@@ -443,11 +459,17 @@ redirectToLogin();
                         <h3>Data Penyaluran Beras</h3>
                     </div>
                     <form method="POST" action="">
-                        <input type="text" name="search" placeholder="Cari Nama" />
-                        <input type="date" name="start_date" />
-                        <input type="date" name="end_date" />
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" name="search" placeholder="Cari Nama" />
+                        <label for="start_date">Tanggal</label>
+                        <input type="date" id="start_date" name="start_date" />
+                        <label for="end_date">s.d Tanggal</label>
+                        <input type="date" id="end_date" name="end_date" />
                         <input type="submit" name="submit" value="Filter" />
+                        <button id="clearButton" onclick="clearFilters()"><i class="fas fa-times"></i> Clear</button>
+                        
                     </form>
+                    
                     <table id="data-table">
                         <thead>
                             <tr>
@@ -586,6 +608,15 @@ redirectToLogin();
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    function clearFilters() {
+  // Hapus nilai input pencarian dan tanggal
+  document.getElementById("nama").value = "";
+  document.getElementById("start_date").value = "";
+  document.getElementById("end_date").value = "";
+
+  // Submit form untuk menampilkan semua data
+  document.forms[0].submit();
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
