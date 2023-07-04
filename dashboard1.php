@@ -473,6 +473,7 @@ redirectToLogin();
                                 <th>TANGGAL CAIR</th>
                                 <th>STATUS</th>
                                 <th>KETERANGAN</th>
+                                <th>NAMA PETUGAS</th>
                             </tr>
                         </thead>
 
@@ -503,7 +504,7 @@ redirectToLogin();
 
                                 $queryCount = "SELECT COUNT(*) as total FROM pdb WHERE NAMA LIKE '%$search%'";
 
-                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb WHERE NAMA LIKE '%$search%'";
+                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan,PETUGAS FROM pdb WHERE NAMA LIKE '%$search%'";
 
                                 // If start date and end date are provided, add them to the query
                                 if (!empty($startDate) && !empty($endDate)) {
@@ -512,7 +513,7 @@ redirectToLogin();
                                 }
                             } else {
                                 $queryCount = "SELECT COUNT(*) as total FROM pdb";
-                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb";
+                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan,PETUGAS FROM pdb";
                             }
 
                             // Get the total number of records
@@ -542,6 +543,7 @@ redirectToLogin();
                                     echo "<td>" . $row['TANGGAL_CAIR'] . "</td>";
                                     echo "<td class='status'>" . $row['status1'] . "</td>";
                                     echo "<td>" . $row['keterangan'] . "</td>";
+                                    echo "<td>" . $row['PETUGAS'] . "</td>";
                                     echo "</tr>";
                                     $counter++;
                                 }

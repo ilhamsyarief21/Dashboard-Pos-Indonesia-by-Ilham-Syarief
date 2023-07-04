@@ -92,8 +92,8 @@
     }
 
     .container .file-input-label {
-        background-color: #ff6600;
-        color: white;
+        background-color: white;
+        color: black;
         padding: 10px 20px;
         border-radius: 4px;
         cursor: pointer;
@@ -233,12 +233,13 @@
                     </li>
 
                     <li>
-                        <div class="file-input">
-                            <label for="link_foto_ktp_tahap1" class="file-input-label">LINK FOTO KTP TAHAP 1</label>
-                            <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" required>
-                        </div>
+                    <div class="file-input">
+                        <label for="link_foto_ktp_tahap1" class="file-input-label">LINK FOTO KTP TAHAP 1</label>
+                        <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" required>
+                        <span id="link_foto_ktp_tahap1_filename" class="file-input-filename"></span>
+                    </div>
                     </li>
-                    <li>
+
                         <div class="file-input">
                             <label for="link_foto_penerima_tahap1" class="file-input-label">LINK FOTO PENERIMA TAHAP 1</label>
                             <input type="file" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" accept="image/*" capture="camera" required>
