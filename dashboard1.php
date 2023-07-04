@@ -501,9 +501,9 @@ redirectToLogin();
                                 $startDate = $_POST['start_date'];
                                 $endDate = $_POST['end_date'];
 
-                                $queryCount = "SELECT COUNT(*) as total FROM pdb WHERE NAMA LIKE '%$search%' ORDER BY NAMA ASC";
+                                $queryCount = "SELECT COUNT(*) as total FROM pdb WHERE NAMA LIKE '%$search%'";
 
-                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb WHERE NAMA LIKE '%$search%' ORDER BY NAMA ASC";
+                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb WHERE NAMA LIKE '%$search%'";
 
                                 // If start date and end date are provided, add them to the query
                                 if (!empty($startDate) && !empty($endDate)) {
@@ -511,8 +511,8 @@ redirectToLogin();
                                     $query .= " AND TANGGAL_CAIR BETWEEN '$startDate' AND '$endDate'";
                                 }
                             } else {
-                                $queryCount = "SELECT COUNT(*) as total FROM pdb ORDER BY NAMA ASC";
-                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb ORDER BY NAMA ASC";
+                                $queryCount = "SELECT COUNT(*) as total FROM pdb";
+                                $query = "SELECT NIK, NAMA, TANGGAL_CAIR, status1, keterangan FROM pdb";
                             }
 
                             // Get the total number of records
@@ -549,29 +549,30 @@ redirectToLogin();
                                 echo "<tr><td colspan='6'>No records found</td></tr>";
                             }
 
+                           
                             ?>
+                   
+
                         </tbody>
                     </table>
                     <?php
-                    // Generate pagination links
-                    echo "<div class='pagination'>";
-                    if ($currentPage > 1) {
-                        echo "<a href='?page=" . ($currentPage - 1) . "'>&laquo; Prev</a>";
-                    }
-                    for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a " . ($i == $currentPage ? "class='active'" : "") . " href='?page=$i'>$i</a>";
-                    }
-                    if ($currentPage < $totalPages) {
-                        echo "<a href='?page=" . ($currentPage + 1) . "'>Next &raquo;</a>";
-                    }
-                    echo "</div>";
+                     // Generate pagination links
+                     echo "<div class='pagination'>";
+                     if ($currentPage > 1) {
+                         echo "<a href='?page=" . ($currentPage - 1) . "'>&laquo; Prev</a>";
+                     }
+                     for ($i = 1; $i <= $totalPages; $i++) {
+                         echo "<a " . ($i == $currentPage ? "class='active'" : "") . " href='?page=$i'>$i</a>";
+                     }
+                     if ($currentPage < $totalPages) {
+                         echo "<a href='?page=" . ($currentPage + 1) . "'>Next &raquo;</a>";
+                     }
+                     echo "</div>";
 
-                    // Close the database connection
-                    mysqli_close($connection);
-                    ?>
+                     // Close the database connection
+                     mysqli_close($connection);?>
                 </div>
             </div>
-
 
 
             <div class="table-data">
