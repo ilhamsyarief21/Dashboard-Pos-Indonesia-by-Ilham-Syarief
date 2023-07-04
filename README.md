@@ -56,7 +56,7 @@ Dashboard Bagian Penginputan Penerima Beras (White Mode) :
 
 Dashboard Bagian Penginputan Penerima Beras (Dark Mode) :
 ![image](https://github.com/ilhamsyarief21/Dashboard-Pos-Indonesia-by-Ilham-Syarief/assets/115606564/367b3890-e155-48ae-8fa7-3f2b8474aafe)
-![Uploading image.png…]()
+
 
 
 
