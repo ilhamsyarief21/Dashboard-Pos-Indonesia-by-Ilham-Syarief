@@ -151,18 +151,21 @@ redirectToLogin();
             border-radius: 5px;
         }
         input[type="submit"] {
-            padding: 5px 10px;
+            padding: 10px 40px;
             background-color: #ff6600;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
+        input[type="submit"]:hover {
+        background-color: #ff9933;
+    }
         #clearButton {
         background-color: #ff6600;
         border-radius: 5px;
         color: white;
-        padding: 5px 10px;
+        padding: 10px 40px;
         border: none;
         cursor: pointer;
         }
@@ -204,6 +207,7 @@ redirectToLogin();
         .pagination .next:hover {
         background-color: #ff8000;
         }
+        
 
 
 
