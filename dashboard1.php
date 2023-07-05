@@ -462,6 +462,156 @@ redirectToLogin();
                     </span>
                 </li>
             </ul>
+            <ul class="box-info">
+                <li>
+                <h1>User Chart</h1>
+                    <div>
+                        <?php
+                        // Memanggil fungsi userchartcreation() untuk membuat chart
+                        userchartcreation();
+                        ?>
+                    </div>
+                <?php
+                    function userchartcreation()
+                    {
+                        // Koneksi ke database
+                        $host = 'localhost';
+                        $username = 'root';
+                        $password = '';
+                        $database = 'pdb';
+                        
+                        $conn = mysqli_connect($host, $username, $password, $database);
+                        if (!$conn) {
+                            die("Koneksi database gagal: " . mysqli_connect_error());
+                        }
+                        
+                        // Mengambil data tanggal pembuatan akun dari tabel user2
+                        $query = "SELECT created_at FROM user2";
+                        $result = mysqli_query($conn, $query);
+                        
+                        // Menyusun data tanggal ke dalam array
+                        $dates = array();
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $date = date('Y-m-d', strtotime($row['created_at']));
+                            $dates[] = $date;
+                        }
+                        
+                        // Menghitung jumlah akun yang dibuat berdasarkan tanggal
+                        $counts = array_count_values($dates);
+                        
+                        // Menyusun data untuk chart
+                        $chartData = array();
+                        foreach ($counts as $date => $count) {
+                            $chartData[] = array(
+                                'date' => $date,
+                                'count' => $count
+                            );
+                        }
+                        
+                        // Membuat chart menggunakan Chart.js
+                        echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
+                        echo '<canvas id="userChart"></canvas>';
+                        echo '<script>';
+                        echo 'var ctx = document.getElementById("userChart").getContext("2d");';
+                        echo 'var userChart = new Chart(ctx, {';
+                        echo '    type: "bar",';
+                        echo '    data: {';
+                        echo '        labels: ' . json_encode(array_column($chartData, 'date')) . ',';
+                        echo '        datasets: [{';
+                        echo '            label: "Jumlah Akun",';
+                        echo '            data: ' . json_encode(array_column($chartData, 'count')) . ',';
+                        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
+                        echo '            borderColor: "rgba(75, 192, 192, 1)",';
+                        echo '            borderWidth: 1';
+                        echo '        }]';
+                        echo '    },';
+                        echo '    options: {';
+                        echo '        scales: {';
+                        echo '            y: {';
+                        echo '                beginAtZero: true';
+                        echo '            }';
+                        echo '        }';
+                        echo '    }';
+                        echo '});';
+                        echo '</script>';
+                        
+                        // Menutup koneksi ke database
+                        mysqli_close($conn);
+                    }
+                    ?>
+
+
+                </li>
+                <li>
+                <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Graphic Tanggal Cair</h3>
+                    </div>
+                    <canvas id="userCreationChart"></canvas>
+                </div>
+            </div>
+
+            <?php
+            $koneksi = mysqli_connect("localhost", "root", "", "pdb");
+            if (!$koneksi) {
+                die("Koneksi gagal: " . mysqli_connect_error());
+            }
+            $query = "SELECT COUNT(*) AS total, status1 FROM datasampel1 GROUP BY status1";
+            $result = mysqli_query($koneksi, $query);
+
+            $validCount = 0;
+            $invalidCount = 0;
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row['status1'] == 'status1') {
+                    $validCount = $row['total'];
+                } else {
+                    $invalidCount = $row['total'];
+                }
+            }
+
+            ?>
+
+
+            <?php
+                // Assuming you have a database connection already established
+                $host = 'localhost';
+                $username = 'root';
+                $password = '';
+                $database = 'pdb';
+
+                $connection = mysqli_connect($host, $username, $password, $database);
+
+                // Check if the connection was successful
+                if (!$connection) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+
+                // Query to fetch data from the database table "user1"
+                $query = "SELECT DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d') AS creation_date, COUNT(*) AS total_users FROM pdb GROUP BY DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d')";
+
+                $result = mysqli_query($connection, $query);
+
+                $dates = [];
+                $userCounts = [];
+
+                if (mysqli_num_rows($result) > 0) {
+                    // Loop through each row of data
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        // Collect the dates and user counts
+                        $dates[] = $row['creation_date'];
+                        $userCounts[] = $row['total_users'];
+                    }
+                }
+
+                // Close the database connection
+                mysqli_close($connection);
+                ?>
+
+                </li>
+            </ul>
+            
 
 
             <div class="table-data">
@@ -596,71 +746,9 @@ redirectToLogin();
             </div>
 
 
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>Graphic Tanggal Cair</h3>
-                    </div>
-                    <canvas id="userCreationChart"></canvas>
-                </div>
-            </div>
+            
+                
 
-            <?php
-            $koneksi = mysqli_connect("localhost", "root", "", "pdb");
-            if (!$koneksi) {
-                die("Koneksi gagal: " . mysqli_connect_error());
-            }
-            $query = "SELECT COUNT(*) AS total, status1 FROM datasampel1 GROUP BY status1";
-            $result = mysqli_query($koneksi, $query);
-
-            $validCount = 0;
-            $invalidCount = 0;
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['status1'] == 'status1') {
-                    $validCount = $row['total'];
-                } else {
-                    $invalidCount = $row['total'];
-                }
-            }
-
-            ?>
-
-
-            <?php
-                // Assuming you have a database connection already established
-                $host = 'localhost';
-                $username = 'root';
-                $password = '';
-                $database = 'pdb';
-
-                $connection = mysqli_connect($host, $username, $password, $database);
-
-                // Check if the connection was successful
-                if (!$connection) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-
-                // Query to fetch data from the database table "user1"
-                $query = "SELECT DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d') AS creation_date, COUNT(*) AS total_users FROM pdb GROUP BY DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d')";
-
-                $result = mysqli_query($connection, $query);
-
-                $dates = [];
-                $userCounts = [];
-
-                if (mysqli_num_rows($result) > 0) {
-                    // Loop through each row of data
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        // Collect the dates and user counts
-                        $dates[] = $row['creation_date'];
-                        $userCounts[] = $row['total_users'];
-                    }
-                }
-
-                // Close the database connection
-                mysqli_close($connection);
-                ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
