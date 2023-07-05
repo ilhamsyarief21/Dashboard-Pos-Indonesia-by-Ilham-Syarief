@@ -207,6 +207,15 @@ redirectToLogin();
         .pagination .next:hover {
         background-color: #ff8000;
         }
+        a.delete-button {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #FF6000;
+        color: #ffffff;
+        border-radius: 5px;
+        text-decoration: none;
+        }
+
         
 
 
@@ -478,6 +487,7 @@ redirectToLogin();
                                 <th>STATUS</th>
                                 <th>KETERANGAN</th>
                                 <th>NAMA PETUGAS</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
 
@@ -540,16 +550,18 @@ redirectToLogin();
                                 $counter = $offset + 1;
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     // Display the data in the table
-                                    echo "<tr>";
-                                    echo "<td>" . $counter . "</td>";
-                                    echo "<td>" . $row['NAMA'] . "</td>";
-                                    echo "<td>" . $row['NIK'] . "</td>";
-                                    echo "<td>" . $row['TANGGAL_CAIR'] . "</td>";
-                                    echo "<td class='status'>" . $row['status1'] . "</td>";
-                                    echo "<td>" . $row['keterangan'] . "</td>";
-                                    echo "<td>" . $row['PETUGAS'] . "</td>";
-                                    echo "</tr>";
-                                    $counter++;
+                                 // Display the data in the table
+                                echo "<tr>";
+                                echo "<td>" . $counter . "</td>";
+                                echo "<td>" . $row['NAMA'] . "</td>";
+                                echo "<td>" . $row['NIK'] . "</td>";
+                                echo "<td>" . $row['TANGGAL_CAIR'] . "</td>";
+                                echo "<td class='status'>" . $row['status1'] . "</td>";
+                                echo "<td>" . $row['keterangan'] . "</td>";
+                                echo "<td>" . $row['PETUGAS'] . "</td>";
+                                echo "<td><a href='delete.php?id=" . $row['NIK'] . "' class='delete-button'>Delete</a></td>"; // Tambahkan tombol delete dengan link ke file delete.php
+                                echo "</tr>";
+                                $counter++;
                                 }
                             } else {
                                 echo "<tr><td colspan='6'>No records found</td></tr>";
