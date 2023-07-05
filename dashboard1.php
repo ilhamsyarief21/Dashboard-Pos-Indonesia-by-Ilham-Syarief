@@ -215,6 +215,9 @@ redirectToLogin();
         border-radius: 5px;
         text-decoration: none;
         }
+        a.delete-button:hover {
+        background-color: #FF8000;
+        }
 
         
 
