@@ -174,7 +174,7 @@ redirectToLogin();
             cursor: pointer;
         }
 
-
+        
         #clearButton:hover {
             opacity: 0.8;
         }
@@ -212,7 +212,6 @@ redirectToLogin();
         .pagination .next:hover {
             background-color: #ff8000;
         }
-        
 
         a.delete-button {
             display: inline-block;
@@ -389,59 +388,7 @@ redirectToLogin();
                 </li>
             </ul>
 
-            <ul class="box-info">
-                <li>
-                    <?php
-                    // Assuming you have a database connection already established
-                    $host = 'localhost';
-                    $username = 'root';
-                    $password = '';
-                    $database = 'pdb';
-
-                    $connection = mysqli_connect($host, $username, $password, $database);
-
-                    // Check if the connection was successful
-                    if (!$connection) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-
-                    // Query to fetch data from the database table "pdb"
-                    $query = "SELECT COUNT(*) as total_valid FROM pdb WHERE status1 = 'valid'";
-                    $result = mysqli_query($connection, $query);
-                    $totalValid = 0;
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // Fetch the total number of valid rows
-                        $row = mysqli_fetch_assoc($result);
-                        $totalValid = $row['total_valid'];
-                    }
-
-                    // Query to fetch data from the database table "pdb"
-                    $query = "SELECT COUNT(*) as total_invalid FROM pdb WHERE status1 = 'Tidak Valid'";
-                    $result = mysqli_query($connection, $query);
-                    $totalInvalid = 0;
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // Fetch the total number of invalid rows
-                        $row = mysqli_fetch_assoc($result);
-                        $totalInvalid = $row['total_invalid'];
-                    }
-
-                    // Close the database connection
-                    mysqli_close($connection);
-                    ?>
-                    <span class="text">
-                        <h3><?php echo $totalValid; ?></h3>
-                        <p>Valid</p>
-                    </span>
-                </li>
-                <li>
-                    <span class="text">
-                        <h3><?php echo $totalInvalid; ?></h3>
-                        <p>Tidak Valid</p>
-                    </span>
-                </li>
-            </ul>
+            
             <ul class="box-info">
                 <li>
                     <h3>User Chart</h3>
@@ -590,6 +537,59 @@ redirectToLogin();
                 mysqli_close($connection);
                 ?>
 
+                </li>
+            </ul>
+            <ul class="box-info">
+                <li>
+                    <?php
+                    // Assuming you have a database connection already established
+                    $host = 'localhost';
+                    $username = 'root';
+                    $password = '';
+                    $database = 'pdb';
+
+                    $connection = mysqli_connect($host, $username, $password, $database);
+
+                    // Check if the connection was successful
+                    if (!$connection) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+
+                    // Query to fetch data from the database table "pdb"
+                    $query = "SELECT COUNT(*) as total_valid FROM pdb WHERE status1 = 'valid'";
+                    $result = mysqli_query($connection, $query);
+                    $totalValid = 0;
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // Fetch the total number of valid rows
+                        $row = mysqli_fetch_assoc($result);
+                        $totalValid = $row['total_valid'];
+                    }
+
+                    // Query to fetch data from the database table "pdb"
+                    $query = "SELECT COUNT(*) as total_invalid FROM pdb WHERE status1 = 'Tidak Valid'";
+                    $result = mysqli_query($connection, $query);
+                    $totalInvalid = 0;
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // Fetch the total number of invalid rows
+                        $row = mysqli_fetch_assoc($result);
+                        $totalInvalid = $row['total_invalid'];
+                    }
+
+                    // Close the database connection
+                    mysqli_close($connection);
+                    ?>
+                    <span class="text">
+                        <h3><?php echo $totalValid; ?></h3>
+                        <p>Valid</p>
+                    </span>
+                </li>
+                <li>
+                    <span class="text">
+                        <h3><?php echo $totalInvalid; ?></h3>
+                        <p>Tidak Valid</p>
+                    </span>
                 </li>
             </ul>
             
