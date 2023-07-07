@@ -305,6 +305,29 @@ redirectToLogin();
         transform: translateX(0);
     }
     }
+    .dark .confirm-box {
+    background-color: #0d0c1e;
+    color: #fff;
+    }
+
+    .dark .confirm-text {
+        color: #fff;
+    }
+
+    .dark .confirm-button {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .dark .confirm-button:hover {
+        background-color: #c82333;
+    }
+
+    .dark .cancel-button {
+        background-color: #ff6600;
+        color: #fff;
+    }
+
 
 
         
