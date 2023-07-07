@@ -225,11 +225,90 @@ redirectToLogin();
         a.delete-button:hover {
             background-color: #FF8000;
         }
+        /* Style untuk overlay pop-up */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    /* Style untuk kotak konfirmasi */
+    .confirm-box {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 400px;
+    }
+
+    /* Style untuk teks konfirmasi */
+    .confirm-text {
+        margin-bottom: 20px;
+    }
+
+    /* Style untuk tombol konfirmasi */
+    .confirm-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    .confirm-button:hover {
+    background-color: #c82333;
+    }
+
+    .confirm-button:active {
+    background-color: #b31e2f;
+    }
+
+    .confirm-button + .confirm-button {
+    margin-left: 10px;
+    }
+    .cancel-button {
+    padding: 11px 16px;
+    font-size: 14px;
+    background-color: #ff6600;
+    }
+
+
+        
     </style>
 </head>
+<script>
+function confirmDelete(link) {
+        var deleteConfirmed = confirm("Apakah Anda yakin ingin menghapus data ini?");
+        if (deleteConfirmed) {
+            window.location.href = link;
+        }
+    }
 
+    function showConfirmation(link) {
+        document.getElementById("confirmationOverlay").style.display = "flex";
+        var deleteButton = document.getElementById("deleteConfirmButton");
+        deleteButton.href = link;
+    }
 
+    function hideConfirmation() {
+        document.getElementById("confirmationOverlay").style.display = "none";
+    }
+</script>
 <body>
+
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="dashboard1.php" class="brand">
@@ -693,8 +772,8 @@ redirectToLogin();
                                 echo "<td class='status'>" . $row['status1'] . "</td>";
                                 echo "<td>" . $row['keterangan'] . "</td>";
                                 echo "<td>" . $row['PETUGAS'] . "</td>";
-                                echo "<td><a href='delete.php?id=" . $row['NIK'] . "' class='delete-button'>Delete</a></td>"; // Tambahkan tombol delete dengan link ke file delete.php
-                                echo "</tr>";
+                                echo "<td><a href='#' class='delete-button' onclick='showConfirmation(\"delete.php?id=" . $row['NIK'] . "\")'>Delete</a></td>";
+
                                 $counter++;
                                 }
                             } else {
@@ -707,7 +786,15 @@ redirectToLogin();
 
                         </tbody>
                     </table>
-                    <?php
+                    <div class="overlay" id="confirmationOverlay" style="display: none;">
+                        <div class="confirm-box">
+                            <p class="confirm-text">Apakah Anda yakin ingin menghapus data ini?</p>
+                            <a href="#" class="confirm-button" id="deleteConfirmButton">Delete</a>
+                            <button class="confirm-button cancel-button" onclick="hideConfirmation();">Cancel</button>
+
+                        </div>
+                    </div>
+                                        <?php
                      // Generate pagination links
                      echo "<div class='pagination'>";
                      if ($currentPage > 1) {
@@ -774,7 +861,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
 </script>
+
+
+
+
+
+
+
 </main>
 <!-- MAIN -->
 </section>
