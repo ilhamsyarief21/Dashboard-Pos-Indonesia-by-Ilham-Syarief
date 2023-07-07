@@ -489,7 +489,7 @@ redirectToLogin();
 
                     // Membuat chart menggunakan Chart.js
                     echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
-                    echo '<canvas id="userChart" width="400" height="400"></canvas>';
+                    echo '<canvas id="userChart" width="350" height="350"></canvas>';
                     echo '<script>';
                     echo 'var ctx = document.getElementById("userChart").getContext("2d");';
                     echo 'var userChart = new Chart(ctx, {';
