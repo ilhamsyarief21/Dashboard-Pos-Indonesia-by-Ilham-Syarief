@@ -174,6 +174,7 @@ redirectToLogin();
             cursor: pointer;
         }
 
+
         #clearButton:hover {
             opacity: 0.8;
         }
@@ -211,6 +212,7 @@ redirectToLogin();
         .pagination .next:hover {
             background-color: #ff8000;
         }
+        
 
         a.delete-button {
             display: inline-block;
