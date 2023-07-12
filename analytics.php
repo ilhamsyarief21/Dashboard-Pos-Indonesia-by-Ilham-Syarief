@@ -314,16 +314,7 @@
                     </span>
                 </li>
             </ul>
-            <div class="box-info">
-                <ul>
-                    <li>
-                        
-                    </li>
-                </ul>
-            </div>
-
             
-
             <div class="table-data">
             <div class="order">
                 <div class="head">

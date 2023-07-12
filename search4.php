@@ -96,17 +96,24 @@
         echo '<td>TANGGAL BAYAR</td>';
         echo '<td>' . $row['TANGGAL_CAIR'] . '</td>';
         echo '</tr>';
+        echo '<tr>';
         echo '<td>STATUS</td>';
         echo '<td>' . $row['status1'] . '</td>';
         echo '</tr>';
+        echo '<tr>';
         echo '<td>KETERANGAN</td>';
         echo '<td>' . $row['keterangan'] . '</td>';
         echo '</tr>';
       
-        $potoktp = $row['LINK_FOTO_KTP_tahap1'];
-        $potoktp2 = $row['LINK_FOTO_KTP_tahap2'];
-        $potopenerima = $row['LINK_FOTO_PENERIMA_tahap1'];
-        $potopenerima2 = $row['LINK_FOTO_PENERIMA_tahap2'];
+        $namaGambarKTP1 = $row['LINK_FOTO_KTP_tahap1'];
+        $namaGambarKTP2 = $row['LINK_FOTO_KTP_tahap2'];
+        $namaGambarPenerima1 = $row['LINK_FOTO_PENERIMA_tahap1'];
+        $namaGambarPenerima2 = $row['LINK_FOTO_PENERIMA_tahap2'];
+
+        $imagePathKTP1 = '' . $namaGambarKTP1;
+        $imagePathKTP2 = '' . $namaGambarKTP2;
+        $imagePathPenerima1 = '' . $namaGambarPenerima1;
+        $imagePathPenerima2 = '' . $namaGambarPenerima2;
     }
     echo '</tbody>';
     echo '</table>';
@@ -123,29 +130,33 @@
     echo '<input type="submit" value="UPDATE">';
     echo '</form>';
 
-    $imageData = file_get_contents($potoktp);
-    $imageData3 = file_get_contents($potoktp2);
-    $imageData2 = file_get_contents($potopenerima);
-    $imageData4 = file_get_contents($potopenerima2);
-
     echo '<table width="100%">';
     echo '<tr>';
     echo '<th width="40%" scope="col">Foto KTP (Tahap 1)</th>';
     echo '<th width="40%" scope="col">Foto KTP (Tahap 2)</th>';
-    echo '<th width="30%" scope="col">Foto Penerima (Tahap 1)</th>';
-    echo '<th width="30%" scope="col">Foto Penerima (Tahap 2)</th>';
     echo '</tr>';
     echo '<tbody>';
     echo '<tr>';
-    echo '<td width="10px" align="center">' . $imageData . '<img size="30%" src="' . $imageData . '" width="30%", height="30%" align="middle", rotate="180" /><br><a href="' . $potoktp . '" target="_blank">View Photo</a></td>';
-    echo '<td width="10px" align="center">' . $imageData2 . '<img size="30%" src="' . $imageData2 . '" width="30%", height="30%" align="middle", rotate="180" /><br><a href="' . $potoktp2 . '" target="_blank">View Photo</a></td>';
-    echo '<td width="10px" align="center">' . $imageData3 . '<img size="30%" src="' . $imageData3 . '" width="30%", height="30%" align="middle", rotate="180" /><br><a href="' . $potopenerima . '" target="_blank">View Photo</a></td>';
-    echo '<td width="10px" align="center">' . $imageData4 . '<img size="30%" src="' . $imageData4 . '" width="30%", height="30%" align="middle", rotate="180" /><br><a href="' . $potopenerima2 . '" target="_blank">View Photo</a></td>';
+    echo '<td width="10px" align="center"><img src="' . $imagePathKTP1 . '" width="270" height="400" /></td>';
+    echo '<td width="10px" align="center"><img src="' . $imagePathKTP2 . '" width="270" height="400" /></td>';
     echo '</tr>';
     echo '</tbody>';
     echo '</table>';
 
-    echo '<a href="dashboard1.php" style="position: absolute; top: 0; left: 0;"><img src="icon-back.png" alt="Back" width="30"></a>';
+    echo '<table width="100%">';
+    echo '<tr>';
+    echo '<th width="40%" scope="col">Foto Penerima (Tahap 1)</th>';
+    echo '<th width="40%" scope="col">Foto Penerima (Tahap 2)</th>';
+    echo '</tr>';
+    echo '<tbody>';
+    echo '<tr>';
+    echo '<td width="10px" align="center"><img src="' . $imagePathPenerima1 . '" width="270" height="400" /></td>';
+    echo '<td width="10px" align="center"><img src="' . $imagePathPenerima2 . '" width="270" height="400" /></td>';
+    echo '</tr>';
+    echo '</tbody>';
+    echo '</table>';
+
+    echo '<a href="dashboard1.php" style="position: absolute; top: 0; left: 0;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjRoPGjWdHgS_TMcPT368VhTHhD4Utc3UnLDoG34I&s" alt="Back" width="30"></a>';
 
     ?>
 

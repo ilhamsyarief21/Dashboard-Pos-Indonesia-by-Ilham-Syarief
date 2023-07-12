@@ -2,6 +2,26 @@
 <html>
 <head>
     <style>
+        
+    @media only screen and (max-width: 414px) {
+    /* Aturan CSS untuk ukuran layar iPhone XR atau lebih kecil */
+    .container {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .container input[type="text"],
+    .container input[type="datetime-local"],
+    .container input[type="submit"],
+    .container select {
+        width: 100%;
+    }
+    
+    .left {
+        display: none; /* Menghilangkan sidebar */
+    }
+}
+
     .container {
     font-family: 'Poppins', sans-serif;
     float: left;
@@ -100,33 +120,29 @@
         width: 100%;
     }
     .file-input:hover .file-input-label {
-        background-color: #b84e07; /* Ubah warna latar belakang saat dihover */
+        background-color: #ff6600; /* Ubah warna latar belakang saat dihover */
     }
-
-
-
     </style>
 </head>
 <body>
     <main>
-            <div class="head-title">
-                <div class="left">
-                    <h1>Input</h1>
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Form Inputan Penerima Beras</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active" href="dashboard1.php">Home</a>
-                        </li>
-                    </ul>
-                </div>
-                
+        <div class="head-title">
+            <div class="left">
+                <h1>Input</h1>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Form Inputan Penerima Beras</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="dashboard1.php">Home</a>
+                    </li>
+                </ul>
             </div>
+        </div>
     </main>
     <div class="container">
-        <form id="myForm" method="post" action="proses.php">
+        <form id="myForm" method="post" action="proses.php" enctype="multipart/form-data">
             <div class="box-info">
                 <ul>
                     <li>
@@ -142,31 +158,31 @@
                         <input type="text" id="alamat" name="alamat" required>
                     </li>
                     <?php
-                            function generateResiNumber() {
-                                // Mendapatkan tanggal dan waktu saat ini
-                                $currentDateTime = new DateTime();
-                                // Menghasilkan nomor resi menggunakan timestamp
-                                $resiNumber = 'PDB' . $currentDateTime->format('YmdHis');
-                                
-                                return $resiNumber;
-                            }
+                        function generateResiNumber() {
+                            // Mendapatkan tanggal dan waktu saat ini
+                            $currentDateTime = new DateTime();
+                            // Menghasilkan nomor resi menggunakan timestamp
+                            $resiNumber = 'PDB' . $currentDateTime->format('YmdHis');
+                            
+                            return $resiNumber;
+                        }
 
-                            // Mengecek apakah ada data yang dikirimkan melalui metode POST
-                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                // Jika ada data yang dikirimkan, kita tetap menggunakan nomor resi yang ada
-                                $nomorResi = $_POST['nomor_resi'];
-                            } else {
-                                // Jika tidak ada data yang dikirimkan, kita menghasilkan nomor resi baru
-                                $nomorResi = generateResiNumber();
-                            }
-                            ?>
+                        // Mengecek apakah ada data yang dikirimkan melalui metode POST
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                            // Jika ada data yang dikirimkan, kita tetap menggunakan nomor resi yang ada
+                            $nomorResi = $_POST['nomor_resi'];
+                        } else {
+                            // Jika tidak ada data yang dikirimkan, kita menghasilkan nomor resi baru
+                            $nomorResi = generateResiNumber();
+                        }
+                    ?>
 
-                            <!-- Menggunakan nilai nomor resi sebagai nilai default pada input -->
-                     <li>
+                    <!-- Menggunakan nilai nomor resi sebagai nilai default pada input -->
+                    <li>
                         <label for="nomor_resi">NOMOR RESI</label>
                         <input type="text" id="nomor_resi" name="nomor_resi" value="<?php echo $nomorResi; ?>" readonly required>
-                     </li>
-                     <li>
+                    </li>
+                    <li>
                         <label for="nopend">NOPEND</label>
                         <input type="text" id="nopend" name="nopend" required>
                     </li>
@@ -210,19 +226,19 @@
                             <option value="Yogyakarta">Yogyakarta</option>
                             <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
                         </select>
-                        </li>
+                    </li>
                     <li>
-                    <label for="status_cekpos">STATUS CEKPOS</label>
-                    <select id="status_cekpos" name="status_cekpos" required>
-                        <option value="DIBAYAR">DIBAYAR</option>
-                        <option value="BELUM DIBAYAR">BELUM DIBAYAR</option>
-                    </select>
+                        <label for="status_cekpos">STATUS CEKPOS</label>
+                        <select id="status_cekpos" name="status_cekpos" required>
+                            <option value="DIBAYAR">DIBAYAR</option>
+                            <option value="BELUM DIBAYAR">BELUM DIBAYAR</option>
+                        </select>
                     </li>
                     <?php
                         date_default_timezone_set('Asia/Jakarta');
-                        $tanggalCair = date("Y-m-d\TH:i");
-                        
+                        $tanggalCair = date("Y-m-d\TH:i:s");
                     ?>
+
                     <li>
                         <label for="tanggal_cair">TANGGAL CAIR</label>
                         <input type="datetime-local" id="tanggal_cair" name="tanggal_cair" value="<?php echo $tanggalCair; ?>" required readonly>
@@ -231,18 +247,10 @@
                         <label for="petugas">NAMA PETUGAS</label>
                         <input type="text" id="petugas" name="petugas" required>
                     </li>
-
                     <li>
-                    <div class="file-input">
-                        <label for="link_foto_ktp_tahap1" class="file-input-label">LINK FOTO KTP TAHAP 1</label>
-                        <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" required>
-                        <span id="link_foto_ktp_tahap1_filename" class="file-input-filename"></span>
-                    </div>
-                    </li>
-
                         <div class="file-input">
-                            <label for="link_foto_penerima_tahap1" class="file-input-label">LINK FOTO PENERIMA TAHAP 1</label>
-                            <input type="file" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" accept="image/*" capture="camera" required>
+                            <label for="link_foto_ktp_tahap1" class="file-input-label">LINK FOTO KTP TAHAP 1</label>
+                            <input type="file" id="link_foto_ktp_tahap1" name="link_foto_ktp_tahap1" accept="image/*" capture="camera" required>
                         </div>
                     </li>
                     <li>
@@ -253,11 +261,17 @@
                     </li>
                     <li>
                         <div class="file-input">
+                            <label for="link_foto_penerima_tahap1" class="file-input-label">LINK FOTO PENERIMA TAHAP 1</label>
+                            <input type="file" id="link_foto_penerima_tahap1" name="link_foto_penerima_tahap1" accept="image/*" capture="camera" required>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="file-input">
                             <label for="link_foto_penerima_tahap2" class="file-input-label">LINK FOTO PENERIMA TAHAP 2</label>
                             <input type="file" id="link_foto_penerima_tahap2" name="link_foto_penerima_tahap2" accept="image/*" capture="camera" required>
                         </div>
                     </li>
-
+                    <li>
                         <input type="submit" name="submit" value="Submit">
                     </li>
                 </ul>
