@@ -243,7 +243,6 @@
                         <label for="tanggal_cair">TANGGAL CAIR</label>
                         <input type="datetime-local" id="tanggal_cair" name="tanggal_cair" value="<?php echo $tanggalCair; ?>" required readonly>
                     </li>
-                    
                     <li>
                         <label for="petugas">NAMA PETUGAS</label>
                         <input type="text" id="petugas" name="petugas" required>
