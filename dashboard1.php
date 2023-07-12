@@ -397,6 +397,7 @@ function confirmDelete(link) {
         <!-- NAVBAR -->
         <nav>
             <a href="#">Pencarian Penyaluran Beras</a>
+            <!-- <span id="current-time" style="margin-left: 10px;"></span> -->
             <form class="form-inline" action="search4.php" method="GET">
                 <div class="form-input">
                     <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Masukkan NIK.." required style="font-family: Poppins;">
@@ -404,7 +405,32 @@ function confirmDelete(link) {
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
+            <span id="current-time" style="margin-left: 10px;"></span>
         </nav>
+        <script>
+            function updateTime() {
+                var currentTime = new Date();
+                var hours = currentTime.getHours();
+                var minutes = currentTime.getMinutes();
+                var seconds = currentTime.getSeconds();
+
+                // Formatting the time
+                hours = (hours < 10 ? "0" : "") + hours;
+                minutes = (minutes < 10 ? "0" : "") + minutes;
+                seconds = (seconds < 10 ? "0" : "") + seconds;
+
+                // Update the time in the HTML
+                document.getElementById("current-time").innerHTML = hours + ":" + minutes + ":" + seconds;
+            }
+
+            // Call updateTime() initially to display the current time
+            updateTime();
+
+            // Update the time every second (1000 milliseconds)
+            setInterval(updateTime, 1000);
+        </script>
+
+
         <!-- NAVBAR -->
 
         <!-- MAIN -->
