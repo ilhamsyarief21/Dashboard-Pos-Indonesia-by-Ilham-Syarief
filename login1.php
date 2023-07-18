@@ -193,9 +193,9 @@ if (isset($_POST['login'])) {
   <div class="navbar">
     <ul>
       <li><a href="signup.php">Sign Up</a></li>
-      <li><a href="#">FAQ</a></li>
-      <li><a href="#">Life at Pos</a></li>
-      <li><a href="#">Requirement</a></li>
+      <li><a href="https://www.posindonesia.co.id/id/content/faqs">FAQ</a></li>
+      <li><a href="https://www.posindonesia.co.id/id/kontak/create">Contact Us</a></li>
+      <li><a href="https://www.posindonesia.co.id/id/content/penerimaan-karyawan-tetap">Requirement</a></li>
     </ul>
   </div>
   <div class="blur"></div>

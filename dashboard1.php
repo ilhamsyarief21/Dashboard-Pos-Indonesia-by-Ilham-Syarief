@@ -405,7 +405,7 @@ function confirmDelete(link) {
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
-            <span id="current-time" style="margin-left: 10px;"></span>
+            <span id="current-time" style="margin-left: 10px; font-family: Poppins, sans-serif; font-weight: bold; color: #FF6000;"></span>
         </nav>
         <script>
             function updateTime() {

@@ -128,7 +128,7 @@
                 </div>
                 <a href="#" class="btn-download" onclick="exportToExcel()">
                     <i class='bx bxs-cloud-download'></i>
-                    <span class="text">Download Excel</span>
+                    <span class="text">Download CSV</span>
                 </a>
             </div>
 
@@ -255,6 +255,7 @@
                     </span>
                 </li>
             </ul>
+        
             <ul>
             
             
