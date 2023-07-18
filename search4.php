@@ -34,7 +34,7 @@
 
 </head>
 <body>
-    <img class="logo" src="pos.png" width="250" alt="Logo Pos">
+    
     
     <?php
     error_reporting(0);
