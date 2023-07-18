@@ -542,15 +542,18 @@ function confirmDelete(link) {
                             
                 <!-- Form filter tanggal -->
             <form method="GET" action="">
-                <label for="start_date">Start Date:</label>
+                <label for="start_date">Tanggal :</label>
                 <input type="date" id="start_date" name="start_date" value="<?php echo isset($_GET['start_date']) ? $_GET['start_date'] : ''; ?>">
 
-                <label for="end_date">End Date:</label>
+                <label for="end_date">s.d Tanggal :</label>
                 <input type="date" id="end_date" name="end_date" value="<?php echo isset($_GET['end_date']) ? $_GET['end_date'] : ''; ?>">
 
-                <button type="submit" style="border-radius: 5px; background-color: #FF6000; color: #fff; padding: 9px 40px; border: none; cursor: pointer; font-size: 14px;">Filter</button>
+                <button type="submit" style="border-radius: 5px; background-color: #FF6000; color: #fff; padding: 10px 40px; border: none; cursor: pointer; font-size: 14px; margin-right: 5px;">Filter</button>
 
-                <a href="?" style="border-radius: 5px; background-color: #FF6000; color: #fff; margin-left: 10px; text-decoration: none; padding: 7px 40px; font-size: 14px;">Clear</a>
+                <a href="?" style="border-radius: 5px; background-color: #FF6000; color: #fff; text-decoration: none; padding: 8px 40px; font-size: 14px;">Clear</a>
+
+
+
 
             </form>
             <ul class="box-info">
@@ -699,10 +702,10 @@ function confirmDelete(link) {
 
                 <!-- HTML form to input start and end dates -->
                 <form method="POST" action="">
-                    <label for="start_date">Start Date:</label>
+                    <label for="start_date">Tanggal:</label>
                     <input type="date" id="start_date" name="start_date" value="<?php echo $start; ?>">
 
-                    <label for="end_date">End Date:</label>
+                    <label for="end_date">s.d Tanggal:</label>
                     <input type="date" id="end_date" name="end_date" value="<?php echo $end; ?>">
 
                     <input type="submit" value="Filter">
@@ -813,11 +816,11 @@ function confirmDelete(link) {
                         <h3>Data Penyaluran Beras</h3>
                     </div>
                     <form method="POST" action="">
-                        <label for="nama">Nama</label>
+                        <label for="nama">Nama :</label>
                         <input type="text" id="nama" name="search" placeholder="Cari Nama" />
-                        <label for="start_date">Tanggal</label>
+                        <label for="start_date">Tanggal :</label>
                         <input type="date" id="start_date" name="start_date" />
-                        <label for="end_date">s.d Tanggal</label>
+                        <label for="end_date">s.d Tanggal :</label>
                         <input type="date" id="end_date" name="end_date" />
                         <input type="submit" name="submit" value="Filter" />
                         <button id="clearButton" onclick="clearFilters()"><i class="fas fa-times"></i> Clear</button>
