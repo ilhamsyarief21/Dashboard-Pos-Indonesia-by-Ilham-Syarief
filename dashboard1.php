@@ -327,6 +327,7 @@ redirectToLogin();
         background-color: #ff6600;
         color: #fff;
     }
+    
 
 
 
@@ -536,8 +537,22 @@ function confirmDelete(link) {
                     </span>
                 </li>
             </ul>
+            <br>
 
-            
+                            
+                <!-- Form filter tanggal -->
+            <form method="GET" action="">
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" value="<?php echo isset($_GET['start_date']) ? $_GET['start_date'] : ''; ?>">
+
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" value="<?php echo isset($_GET['end_date']) ? $_GET['end_date'] : ''; ?>">
+
+                <button type="submit" style="border-radius: 5px; background-color: #FF6000; color: #fff; padding: 9px 40px; border: none; cursor: pointer; font-size: 14px;">Filter</button>
+
+                <a href="?" style="border-radius: 5px; background-color: #FF6000; color: #fff; margin-left: 10px; text-decoration: none; padding: 7px 40px; font-size: 14px;">Clear</a>
+
+            </form>
             <ul class="box-info">
                 <li>
                     <h3>User Chart</h3>
@@ -548,108 +563,93 @@ function confirmDelete(link) {
                         ?>
                     </div>
                 </li>
-                <?php
-                function userchartcreation()
-                {
-                    // Koneksi ke database
-                    $host = 'localhost';
-                    $username = 'root';
-                    $password = '';
-                    $database = 'pdb';
-
-                    $conn = mysqli_connect($host, $username, $password, $database);
-                    if (!$conn) {
-                        die("Koneksi database gagal: " . mysqli_connect_error());
-                    }
-
-                    // Mengambil data tanggal pembuatan akun dari tabel user2
-                    $query = "SELECT created_at FROM user1";
-                    $result = mysqli_query($conn, $query);
-
-                    // Menyusun data tanggal ke dalam array
-                    $dates = array();
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $date = date('Y-m-d', strtotime($row['created_at']));
-                        $dates[] = $date;
-                    }
-
-                    // Menghitung jumlah akun yang dibuat berdasarkan tanggal
-                    $counts = array_count_values($dates);
-
-                    // Menyusun data untuk chart
-                    $chartData = array();
-                    foreach ($counts as $date => $count) {
-                        $chartData[] = array(
-                            'date' => $date,
-                            'count' => $count
-                        );
-                    }
-
-                    // Membuat chart menggunakan Chart.js
-                    echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
-                    echo '<canvas id="userChart" width="350" height="350"></canvas>';
-                    echo '<script>';
-                    echo 'var ctx = document.getElementById("userChart").getContext("2d");';
-                    echo 'var userChart = new Chart(ctx, {';
-                    echo '    type: "bar",';
-                    echo '    data: {';
-                    echo '        labels: ' . json_encode(array_column($chartData, 'date')) . ',';
-                    echo '        datasets: [{';
-                    echo '            label: "Jumlah Akun",';
-                    echo '            data: ' . json_encode(array_column($chartData, 'count')) . ',';
-                    echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
-                    echo '            borderColor: "rgba(75, 192, 192, 1)",';
-                    echo '            borderWidth: 1';
-                    echo '        }]';
-                    echo '    },';
-                    echo '    options: {';
-                    echo '        scales: {';
-                    echo '            y: {';
-                    echo '                beginAtZero: true';
-                    echo '            }';
-                    echo '        }';
-                    echo '    }';
-                    echo '});';
-                    echo '</script>';
-
-                    // Menutup koneksi ke database
-                    mysqli_close($conn);
-                }
-                ?>
-
-
-                </li>
-                <li>
-                <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>Graphic Tanggal Cair</h3>
-                    </div>
-                    <canvas id="userCreationChart"></canvas>
-                </div>
-            </div>
+            </ul>
 
             <?php
-            $koneksi = mysqli_connect("localhost", "root", "", "pdb");
-            if (!$koneksi) {
-                die("Koneksi gagal: " . mysqli_connect_error());
-            }
-            $query = "SELECT COUNT(*) AS total, status1 FROM datasampel1 GROUP BY status1";
-            $result = mysqli_query($koneksi, $query);
+            function userchartcreation()
+            {
+                // Mengatur nilai awal filter tanggal
+                $startDate = '';
+                $endDate = '';
 
-            $validCount = 0;
-            $invalidCount = 0;
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['status1'] == 'status1') {
-                    $validCount = $row['total'];
-                } else {
-                    $invalidCount = $row['total'];
+                // Cek apakah ada parameter filter yang dikirimkan melalui URL
+                if (isset($_GET['start_date']) && isset($_GET['end_date'])) {
+                    // Mengambil tanggal filter dari URL
+                    $startDate = $_GET['start_date'];
+                    $endDate = $_GET['end_date'];
                 }
-            }
 
+                // Koneksi ke database
+                $host = 'localhost';
+                $username = 'root';
+                $password = '';
+                $database = 'pdb';
+
+                $conn = mysqli_connect($host, $username, $password, $database);
+                if (!$conn) {
+                    die("Koneksi database gagal: " . mysqli_connect_error());
+                }
+
+                // Mengambil data tanggal pembuatan akun dari tabel user1 berdasarkan filter tanggal
+                $query = "SELECT created_at FROM user1";
+                if ($startDate && $endDate) {
+                    $query .= " WHERE created_at BETWEEN '$startDate' AND '$endDate'";
+                }
+                $result = mysqli_query($conn, $query);
+
+                // Menyusun data tanggal ke dalam array
+                $dates = array();
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $date = date('Y-m-d', strtotime($row['created_at']));
+                    $dates[] = $date;
+                }
+
+                // Menghitung jumlah akun yang dibuat berdasarkan tanggal
+                $counts = array_count_values($dates);
+
+                // Menyusun data untuk chart
+                $chartData = array();
+                foreach ($counts as $date => $count) {
+                    $chartData[] = array(
+                        'date' => $date,
+                        'count' => $count
+                    );
+                }
+
+                // Membuat chart menggunakan Chart.js
+                echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
+                echo '<canvas id="userChart" width="800" height="350"></canvas>';
+                echo '<script>';
+                echo 'var ctx = document.getElementById("userChart").getContext("2d");';
+                echo 'var userChart = new Chart(ctx, {';
+                echo '    type: "bar",';
+                echo '    data: {';
+                echo '        labels: ' . json_encode(array_column($chartData, 'date')) . ',';
+                echo '        datasets: [{';
+                echo '            label: "Jumlah Akun",';
+                echo '            data: ' . json_encode(array_column($chartData, 'count')) . ',';
+                echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
+                echo '            borderColor: "rgba(75, 192, 192, 1)",';
+                echo '            borderWidth: 1';
+                echo '        }]';
+                echo '    },';
+                echo '    options: {';
+                echo '        scales: {';
+                echo '            y: {';
+                echo '                beginAtZero: true';
+                echo '            }';
+                echo '        },';
+                echo '        maintainAspectRatio: false'; // Menambahkan opsi maintainAspectRatio
+                echo '    }';
+                echo '});';
+                echo '</script>';
+
+                // Menutup koneksi ke database
+                mysqli_close($conn);
+            }
             ?>
 
+        
 
             <?php
                 // Assuming you have a database connection already established
@@ -665,8 +665,18 @@ function confirmDelete(link) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                // Query to fetch data from the database table "user1"
-                $query = "SELECT DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d') AS creation_date, COUNT(*) AS total_users FROM pdb GROUP BY DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d')";
+                $start = isset($_POST['start_date']) ? $_POST['start_date'] : '';
+                $end = isset($_POST['end_date']) ? $_POST['end_date'] : '';
+
+                // Filter the query based on the start and end dates
+                $filterQuery = '';
+                if (!empty($start) && !empty($end)) {
+                    $filterQuery = " WHERE TANGGAL_CAIR BETWEEN '$start' AND '$end'";
+                }
+
+                // Query to fetch data from the database table "pdb"
+                $query = "SELECT DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d') AS creation_date, COUNT(*) AS total_users 
+                        FROM pdb" . $filterQuery . " GROUP BY DATE_FORMAT(TANGGAL_CAIR, '%Y-%m-%d')";
 
                 $result = mysqli_query($connection, $query);
 
@@ -685,6 +695,59 @@ function confirmDelete(link) {
                 // Close the database connection
                 mysqli_close($connection);
                 ?>
+                <br>
+
+                <!-- HTML form to input start and end dates -->
+                <form method="POST" action="">
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" value="<?php echo $start; ?>">
+
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" value="<?php echo $end; ?>">
+
+                    <input type="submit" value="Filter">
+                    <button type="button" onclick="window.location.href=window.location.href" style="border-radius: 5px; background-color: #FF6000; cursor: pointer; color: white; border: none; padding: 10px 40px;">Clear</button>
+
+                </form>
+
+                <!-- Render the chart or display a message if no data available -->
+                <?php if (!empty($dates) && !empty($userCounts)) : ?>
+                    <div class="table-data">
+                        <div class="order">
+                            <div class="head">
+                                <h3>Graphic Tanggal Cair</h3>
+                            </div>
+                            <canvas id="userCreationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <script>
+                        // Use the retrieved data to render the chart using a JavaScript library like Chart.js
+                        // Example code:
+                        var ctx = document.getElementById('userCreationChart').getContext('2d');
+                        var chart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: <?php echo json_encode($dates); ?>,
+                                datasets: [{
+                                    label: 'User Counts',
+                                    data: <?php echo json_encode($userCounts); ?>,
+                                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                                    borderColor: 'rgba(0, 123, 255, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false
+                                // Add other chart options as needed
+                            }
+                        });
+                    </script>
+                <?php else : ?>
+                    <p>No data available.</p>
+                <?php endif; ?>
+
 
                 </li>
             </ul>
