@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jun 2023 pada 06.43
+-- Waktu pembuatan: 01 Agu 2023 pada 04.06
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.5
 
@@ -20,100 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pdb`
 --
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `datasampel`
---
-
-CREATE TABLE `datasampel` (
-  `NIK` varchar(255) DEFAULT NULL,
-  `NAMA` varchar(255) DEFAULT NULL,
-  `ALAMAT` varchar(255) DEFAULT NULL,
-  `NOMOR_RESI` varchar(255) DEFAULT NULL,
-  `NOPEND` varchar(255) DEFAULT NULL,
-  `KCU_KC` varchar(255) DEFAULT NULL,
-  `STATATUS_CEKPOS` varchar(255) DEFAULT NULL,
-  `TANGGAL_CAIR` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_KTP_tahap1` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_PENERIMA_tahap1` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_KTP_tahap2` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_PENERIMA_tahap2` varchar(255) DEFAULT NULL,
-  `status1` varchar(255) DEFAULT NULL,
-  `keterangan` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data untuk tabel `datasampel`
---
-
-INSERT INTO `datasampel` (`NIK`, `NAMA`, `ALAMAT`, `NOMOR_RESI`, `NOPEND`, `KCU_KC`, `STATATUS_CEKPOS`, `TANGGAL_CAIR`, `LINK_FOTO_KTP_tahap1`, `LINK_FOTO_PENERIMA_tahap1`, `LINK_FOTO_KTP_tahap2`, `LINK_FOTO_PENERIMA_tahap2`, `status1`, `keterangan`) VALUES
-('NIK', 'NAMA', 'ALAMAT', 'NOMOR_RESI', 'NOPEND', 'KCU_KC', 'STATATUS_CEKPOS', 'TANGGAL_CAIR', 'LINK_FOTO_KTP_tahap1', 'LINK_FOTO_PENERIMA_tahap1', 'LINK_FOTO_KTP_tahap2', 'LINK_FOTO_PENERIMA_tahap2', 'status1', 'keterangan'),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051003100973\r\n', 'ROHANAH', 'Jl. Sukapura No.31', 'PBP32730510031009731', '40000', 'KCU BANDUNG', 'Dibayar', '4/17/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/ktp_PBP32730510031009731&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/PBP32730510031009731&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/ktp_PBP32730510031009731&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/PBP32730510031009731&myscreet=secret', '', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', ''),
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID', '');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `datasampel1`
---
-
-CREATE TABLE `datasampel1` (
-  `NIK` varchar(255) DEFAULT NULL,
-  `NAMA` varchar(255) DEFAULT NULL,
-  `ALAMAT` varchar(19) DEFAULT NULL,
-  `NOMOR_RESI` varchar(255) DEFAULT NULL,
-  `NOPEND` varchar(255) DEFAULT NULL,
-  `KCU_KC` varchar(255) DEFAULT NULL,
-  `STATATUS_CEKPOS` varchar(255) DEFAULT NULL,
-  `TANGGAL_CAIR` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_KTP_tahap1` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_PENERIMA_tahap1` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_KTP_tahap2` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_PENERIMA_tahap2` varchar(255) DEFAULT NULL,
-  `status1` varchar(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data untuk tabel `datasampel1`
---
-
-INSERT INTO `datasampel1` (`NIK`, `NAMA`, `ALAMAT`, `NOMOR_RESI`, `NOPEND`, `KCU_KC`, `STATATUS_CEKPOS`, `TANGGAL_CAIR`, `LINK_FOTO_KTP_tahap1`, `LINK_FOTO_PENERIMA_tahap1`, `LINK_FOTO_KTP_tahap2`, `LINK_FOTO_PENERIMA_tahap2`, `status1`) VALUES
-('\'3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/16/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID'),
-('3273051006100002', 'ROHANAH', 'Jl. Sukapura No.31', 'PBP32730510031009731', '40000', 'KCU BANDUNG', 'Dibayar', '4/17/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/ktp_PBP32730510031009731&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/PBP32730510031009731&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/ktp_PBP32730510031009731&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/17/PBP32730510031009731&myscreet=secret', ''),
-('3273051006100003', 'POPON FATIMAH', 'Jl. Sukapura No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/19/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID'),
-('3273051006100004', 'POPON FATIMAH', 'Jl. Sukapura No.33', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/20/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID'),
-('3273051006100005', 'POPON FATIMAH', 'Jl. Sukapura No.34', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/21/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID'),
-('3273051006100006', 'POPON FATIMAH', 'Jl. Sukapura No.35', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/22/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID'),
-('3273051006100007', 'POPON FATIMAH', 'Jl. Sukapura No.36', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/23/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID'),
-('3273051006100008', 'POPON FATIMAH', 'Jl. Sukapura No.37', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/24/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID'),
-('3273051006100009', 'POPON FATIMAH', 'Jl. Sukapura No.38', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/25/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'TIDAK VALID'),
-('', 'POPON FATIMAH', 'Jl. Sukapura No.39', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '4/26/2023', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID'),
-('', '', '', '', '', '', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -7890,51 +7796,32 @@ CREATE TABLE `pdb` (
   `LINK_FOTO_KTP_tahap2` varchar(255) DEFAULT NULL,
   `LINK_FOTO_PENERIMA_tahap2` varchar(255) DEFAULT NULL,
   `status1` varchar(255) DEFAULT NULL,
-  `keterangan` varchar(255) DEFAULT NULL
+  `keterangan` varchar(255) DEFAULT NULL,
+  `PETUGAS` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `pdb`
 --
 
-INSERT INTO `pdb` (`NIK`, `NAMA`, `ALAMAT`, `NOMOR_RESI`, `NOPEND`, `KCU_KC`, `STATATUS_CEKPOS`, `TANGGAL_CAIR`, `LINK_FOTO_KTP_tahap1`, `LINK_FOTO_PENERIMA_tahap1`, `LINK_FOTO_KTP_tahap2`, `LINK_FOTO_PENERIMA_tahap2`, `status1`, `keterangan`) VALUES
-('32730510031001111', 'Yanti Abdurahmin', 'Jl. Kenangan', 'PBP327305100310093421', '4000', 'KCU BANDUNG', 'Dibayar', '2023-06-30 15:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', ''),
-('32730510031001122', 'Anti Yanti', 'Jl. Baureksa', 'PBP327305100310092123', '4000', 'KCU BANDUNG', 'Dibayar', '2023-06-29 15:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', ''),
-('32730510031001125', 'Abdurahman', 'Jl. Kenangan', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-06-30 15:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'TIDAK VALID', 'Tidak Cocok'),
-('3273051003100920', 'JULIAN GANTENK', 'Jl. Banda', 'PBP327305100610004321\r\n', '40000\r\n', 'KCU BOGOR', 'Dibayar', '2023-06-28 08:59:32', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'TIDAK VALID', 'TIDAK SAMA'),
-('3273051003100921', 'MUSLIHAT TANJUDIN', 'Jl.Buah Batu', 'PBP32730510031002310', '4000', 'KCU PADANG', 'Dibayar', '2023-04-16 13:54:15', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID', ''),
-('3273051003100924', 'Anjay Mabar', 'Jl. Kenangan No.23', 'PBP32730510031009231231', '4000', 'KCU BANDUNG', 'Dibayar', '2023-07-20 11:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', ''),
-('3273051003100933', 'Jubir ', 'Jl. Banda', 'PBP3273051006100041231\r\n', '40000\r\n', 'KCU BOGOR', 'Dibayar', '2023-06-28 08:59:32', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'TIDAK VALID', 'Tidak Sama'),
-('3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '2023-04-16 13:54:15', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID', ''),
-('3273051006100009', 'MAMAN RUHIYAN', 'Jl. BABAKAN CIAMIS', 'PBP32730510061000019\r\n', '4000', 'KCU JAKARTA', 'Dibayar', '2023-06-24 08:59:32', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret\r\n', 'VALID', ''),
-('3273051006100089', 'Anton Abdurahman', 'Jl. Putus', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-06-30 15:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', ''),
-('3273051006192124', 'Gogo Tanjung', 'Jl. Bubat', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-07-20 11:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'TIDAK VALID', 'TIDAK SAMA'),
-('3273051006194309', 'Mamang Abdurahman', 'Jl. Kenangan', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-07-26 07:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', ''),
-('3273051006194569', 'Gege Tanjung', 'Jl. Bubat', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-07-20 11:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', ''),
-('3273051006198741', 'Mamang Abdurahman', 'Jl. Kenangan', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-07-20 11:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', '');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `pdb1`
---
-
-CREATE TABLE `pdb1` (
-  `NIK` varchar(255) DEFAULT NULL,
-  `NAMA` varchar(255) DEFAULT NULL,
-  `ALAMAT` varchar(255) DEFAULT NULL,
-  `NOMOR_RESI` varchar(255) DEFAULT NULL,
-  `NOPEND` varchar(255) DEFAULT NULL,
-  `KCU_KC` varchar(255) DEFAULT NULL,
-  `STATATUS_CEKPOS` varchar(255) DEFAULT NULL,
-  `TANGGAL_CAIR` datetime DEFAULT NULL,
-  `LINK_FOTO_KTP_tahap1` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_PENERIMA_tahap1` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_KTP_tahap2` varchar(255) DEFAULT NULL,
-  `LINK_FOTO_PENERIMA_tahap2` varchar(255) DEFAULT NULL,
-  `status1` varchar(255) DEFAULT NULL,
-  `keterangan` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `pdb` (`NIK`, `NAMA`, `ALAMAT`, `NOMOR_RESI`, `NOPEND`, `KCU_KC`, `STATATUS_CEKPOS`, `TANGGAL_CAIR`, `LINK_FOTO_KTP_tahap1`, `LINK_FOTO_PENERIMA_tahap1`, `LINK_FOTO_KTP_tahap2`, `LINK_FOTO_PENERIMA_tahap2`, `status1`, `keterangan`, `PETUGAS`) VALUES
+('32730510031001125', 'Abdurahman', 'Jl. Kenangan', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-06-30 15:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'TIDAK VALID', 'Tidak Cocok', NULL),
+('3273051003100920', 'JULIAN GANTENK', 'Jl. Banda', 'PBP327305100610004321\r\n', '40000\r\n', 'KCU BOGOR', 'Dibayar', '2023-06-28 08:59:32', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'TIDAK VALID', 'TIDAK SAMA', NULL),
+('3273051003100921', 'MUSLIHAT TANJUDIN', 'Jl.Buah Batu', 'PBP32730510031002310', '4000', 'KCU PADANG', 'Dibayar', '2023-04-16 13:54:15', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID', '', NULL),
+('3273051003100924', 'Anjay Mabar', 'Jl. Kenangan No.23', 'PBP32730510031009231231', '4000', 'KCU BANDUNG', 'Dibayar', '2023-07-20 11:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', '', NULL),
+('3273051006100001', 'POPON FATIMAH', 'Jl. Sukabirus No.32', 'PBP32730510061000011', '40000', 'KCU BANDUNG', 'Dibayar', '2023-04-16 13:54:15', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret', 'VALID', '', NULL),
+('3273051006100009', 'MAMAN RUHIYAN', 'Jl. BABAKAN CIAMIS', 'PBP32730510061000019\r\n', '4000', 'KCU JAKARTA', 'Dibayar', '2023-06-24 08:59:32', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/PBP32730510061000011&myscreet=secret\r\n', 'VALID', '', NULL),
+('3273051006100089', 'Anton Abdurahman', 'Jl. Putus', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-06-30 15:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'VALID', '', NULL),
+('32730510061000911', 'Dadang', 'Jl. Kasuari No.56', 'PDB20230705093407', '4000', 'Riau', 'BELUM DIBAYAR', '2023-07-05 14:34:00', 'IMG_6869.jpg', 'IMG_2257.jpg', 'IMG_2054 (1).jpg', 'IMG_2257.jpg', NULL, NULL, 'Adhisty'),
+('32730510061000921', 'Anang Hermansyah', 'Jl. Kasuari No.1A', 'PDB20230705093307', '4000', 'Kalimantan Timur', 'DIBAYAR', '2023-07-05 14:33:00', 'IMG_2257.jpg', 'IMG_2054 (1).jpg', 'IMG_2257.jpg', 'IMG_2054 (1).jpg', NULL, NULL, 'Andara'),
+('3273051006100983', 'SAMSUDIN JAFAR', 'Jl. Kasuari No.03', 'PDB20230705033540', '4000', 'Jawa Timur', 'DIBAYAR', '2023-07-05 08:35:00', 'IMG_2257.jpg', 'IMG_2054 (1).jpg', 'IMG_2257.jpg', 'IMG_2054 (1).jpg', NULL, NULL, 'Adhisty'),
+('3273051006192124', 'Gogo Tanjung', 'Jl. Bubat', 'PBP327305100310092313', '4000', 'KCU BANDUNG', 'Dibayar', '2023-07-20 11:08:53', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'https://bda.posindonesia.co.id/display_image_aws.php?myimg=2023/04/16/ktp_PBP32730510061000011&myscreet=secret\r\n', 'TIDAK VALID', 'TIDAK SAMA', NULL),
+('7571054911700002', 'Masudi', 'Jl. Kasuari No.91', 'PDB20230704055159', '4000', 'Jakarta', 'DIBAYAR', '2023-07-04 10:51:00', 'http://localhost:8080/galeri/tampil_foto.php', 'http://localhost:8080/galeri/tampil_foto.php', 'http://localhost:8080/galeri/tampil_foto.php', 'http://localhost:8080/galeri/tampil_foto.php', 'TIDAK VALID', 'Tidak Cocok', 'Adhisty'),
+('75710549117000998', 'Wahid Nuraiman', 'Jl. Kasuari No.09', 'PDB20230712092545', '4000', 'Kalimantan Selatan', 'DIBAYAR', '2023-07-12 14:25:45', 'ktp.jpg', 'ktp1.jpg', 'beras.jpg', 'beras2.jpg', NULL, NULL, 'Antonio Man'),
+('7571054911700427', 'Pulu', 'Jl. Kasuari No.81', 'PDB20230712051347', '4000', 'Kalimantan Selatan', 'DIBAYAR', '2023-07-12 10:13:47', '', '', '', '', NULL, NULL, 'Adhisty'),
+('75710549117005214', 'Aisa Nurhadi', 'Jl. Kasuari No.95', 'PDB20230712092925', '4000', 'Bengkulu', 'DIBAYAR', '2023-07-12 14:29:25', 'uploads/ktp1.jpg', 'uploads/beras.jpg', 'uploads/ktp.jpg', 'uploads/beras2.jpg', 'VALID', '', 'Adhisty'),
+('7571054911700555', 'Mantapu', 'Jl. Kasuari No.81', 'PDB20230712055648', '4000', 'Kalimantan Tengah', 'DIBAYAR', '2023-07-12 10:56:48', '5f55ae3c33eab.jpg', '5f55ae3c33eab.jpg', '5f55ae3c33eab.jpg', '5f55ae3c33eab.jpg', NULL, NULL, 'Adhisty'),
+('912839183981231', 'Zulkifli', 'Jl.Jakarta No1', 'PDB20230714051849', '4000', 'Kalimantan Tengah', 'DIBAYAR', '2023-07-14 10:18:49', '5f55ae3c33eab.jpg', '5f55ae3c33eab.jpg', '5f55ae3c33eab.jpg', '5f55ae3c33eab.jpg', NULL, NULL, 'Adys');
 
 -- --------------------------------------------------------
 
@@ -7985,30 +7872,7 @@ INSERT INTO `prov` (`id`, `provinsi`) VALUES
 ('81', 'Maluku'),
 ('82', 'Maluku Utara'),
 ('91', 'Papua'),
-('92', 'Papua Barat'),
-('id', 'nm');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user`
---
-
-CREATE TABLE `user` (
-  `fullname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `confirm-password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `user`
---
-
-INSERT INTO `user` (`fullname`, `email`, `password`, `confirm-password`) VALUES
-('Ilham Syarief Roem Mohamad', 'ilhamsyarief001@gmail.com', '$2y$10$zzi1vNGNsBOmMvdfe2oedOA6G7uo065wD0/g6nUnWBmCLbnwE0KyG', ''),
-('Ilham', 'a@gmail.com', '$2y$10$.DIu./qLPNvW0EIbJ6G7XeViOlFQpWPI1q4beA99JHKF8R7Iba1KC', ''),
-('ilhamsyarief', 'b@gmail.com', '$2y$10$YLNJ5PZkxApZukWjT5j2VeyU4BTNdXGeG4KC57uMfPFiffQmfYaXa', '');
+('92', 'Papua Barat');
 
 -- --------------------------------------------------------
 
@@ -8019,59 +7883,34 @@ INSERT INTO `user` (`fullname`, `email`, `password`, `confirm-password`) VALUES
 CREATE TABLE `user1` (
   `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `created_at` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user1`
 --
 
-INSERT INTO `user1` (`id`, `username`, `password`) VALUES
-(1, 'ilhamsyarief', '1'),
-(2, 'ilhams', '$2y$10$5R0WxZvUJG6P59Yw3YJ1..oSTaQnjdHITdq0ALEVX6EDL8fwcpA4e'),
-(3, 'aa', '$2y$10$H9obEfGDbZyAB3wydaboV.565MQ6NK55e0H2eVglkLko1JRhdaRL.'),
-(4, 'ilhamsyarief21', '1'),
-(5, 'ilham13', '$2y$10$PVxQglP.fXUOwvgPlpKVJeyORyQDt.eTYK4UAKIm3GPf81eFilHSC'),
-(6, 'user1', '$2y$10$0kVNzHAJz.lp0/cG.PVjOOgr0JB5mmxHknuH8UV290ZjW9pJVFdlS'),
-(7, 'admin', '$2y$10$JFJRHYlfN8N4nrA3IDAWQOhRUEeilzgIsXoxG3f1x8jM5MSLmkz.q'),
-(8, 'admin', '$2y$10$pO.lym1His7s3aXZICXsPO0kSji1lYpXKCO/Eu82kz2U/SelriVhG'),
-(9, 'admin', '$2y$10$o1qoGXopdzIKv3teAuUqyuIltQQKG5pPRfPSjK/zQkkR6bHSE9RSK'),
-(10, 'admin', '$2y$10$1p6gN2V8r39NNcofkzdTS.Zlc1PJDrHE01h3hJk1DrlbhcgP8./OK'),
-(11, 'a', '$2y$10$NW7izdRvE3.wFpkjbCa0n.0twmZVfRmkow01k2UlSCj9ZwwBOl0US'),
-(12, 'a', '$2y$10$K2QffISDCaujmNwWDAi/tuCHla7ZVenDbdUYZVKX98F7OFl.DnGzG'),
-(13, 'a', '1'),
-(14, 'a', '1'),
-(16, 'aa', '$2y$10$gTCjHT9VU5elxbIiIqv9Su1F5BxO0eODsTMomRZfSNmXD.hKDUmnW'),
-(17, 'aa', '$2y$10$/F/S4YQmDAhv8Bjp6kh9UeoT8ylKqHnWH2TULlWuOa7L7C43RxfDy'),
-(18, 'passnya1', '1'),
-(19, 'admin', '$2y$10$KWMbuYshwP7vImpW6t86uO2tTzFrVsjAzqX805.hxpekapWEaergy'),
-(20, 'passnya2', '$2y$10$yScDfbVTMjmGio5eaJltY.4FzRtLKLbKK2.TCvwJyDpOcunBefn0K'),
-(26, 'ilhampulu', '$2y$10$crgWkI3q03n1nMChA2X0QunCy8fKymDmH9wJx7JEfbmlkt/3OnHWu'),
-(27, 'ilham', '$2y$10$f55PKbyCwf1CzH6V3HaITuleCi/.enIxVerKQsEAgojRvPZFXwr1i'),
-(28, 'abc', '$2y$10$y.dmF1pGMaykGlCblaGyc.PX/qwrpmjZr.6XXUf4QEWyhewMJFWD.'),
-(29, 'abc', '$2y$10$bh6zejqkl6oXyVRisXZsAOlIJu1yGYrI1x.KrRBkYYP7mewwFzISC');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user2`
---
-
-CREATE TABLE `user2` (
-  `id` int(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `user2`
---
-
-INSERT INTO `user2` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'ilhamsyarief', '1', '2023-06-06'),
-(2, 'mamang', '1', '2023-06-27'),
-(3, 'mamong', '1', '2023-06-05');
+INSERT INTO `user1` (`id`, `username`, `password`, `created_at`) VALUES
+(37, 'ilham131', '$2y$10$TLA1wzfAFIOr4nFOtBhESuNkfxzqFOZnomTtUM5jPfq9ifg0RKzi2', '2023-07-07'),
+(39, 'tiaraviolenz', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-05'),
+(41, 'ilhamsyarief', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-05'),
+(42, 'ilhamsyarief2109', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-02'),
+(43, 'ilham', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-06'),
+(44, 'ilham', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-06'),
+(45, 'ilham', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-06'),
+(46, 'ilham', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-06'),
+(47, 'ilham', '$2y$10$7YC7xCMdMHmexSe1JMc1w.61UMqJettBrpyn.NuCaePVRlSHxbptG', '2023-07-06'),
+(48, 'ilham11', '$2y$10$TdvR82Cn3ehe9yr1Z6hkLO6uSPSapvdrk.ginFB2HIjD42.JyKJna', '2023-07-12'),
+(49, 'ilham11', '$2y$10$A.9qDcEwmzY/wXOldD3XwebuE0.FDoYe08s3auZoz62eicckf8qru', '2023-07-12'),
+(50, 'sifa', '$2y$10$F1mjgbLNA1G/G/eoUpL1mumYOnDRvaBiubnCuPuoMCrq4fYcZkkG.', '2023-07-12'),
+(51, 'a', '$2y$10$jj6OItggmzGd207ebwF.Bu/yWhNsLdH9GiJy8Rg7COHP.J7eE7kcO', '2023-07-14'),
+(52, 'a', '$2y$10$stv6/Nk4f3J7fVgdcO6wg.bHISenBAvL2.SL/.AvJtnpRtNmlmraO', '2023-07-14'),
+(53, 'a', '$2y$10$hDrH83OE.ev4MJKWnAcBqOhO2x6IR5LhFQYoLT3LGYRLrX2W//qBy', '2023-07-14'),
+(54, 'a', '$2y$10$hYZSu/PpmammwSl.aqJ/iuOSe/xcZMKW0tZO.82FEl.JifsQl67Tm', '2023-07-18'),
+(55, 'a', '$2y$10$9jnNNgkUM4BpynG/HhDDk.ZQZukX31amP8jWBNyTVWpu4PgEeu8HS', '2023-07-18'),
+(56, 'a', '$2y$10$yrMF9c.K2s95OZeEgUQc0uIKLjiMgXeCqdEbGLo5oNCQXFmIZrG52', '2023-07-18'),
+(57, 'a', '$2y$10$XWRy42LY9mRA5vsbgjvoreyVl9RLE97wWGeqD5.mMrstdeDGgpHZq', '2023-07-18');
 
 --
 -- Indexes for dumped tables
@@ -8102,12 +7941,6 @@ ALTER TABLE `user1`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user2`
---
-ALTER TABLE `user2`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -8115,13 +7948,7 @@ ALTER TABLE `user2`
 -- AUTO_INCREMENT untuk tabel `user1`
 --
 ALTER TABLE `user1`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT untuk tabel `user2`
---
-ALTER TABLE `user2`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

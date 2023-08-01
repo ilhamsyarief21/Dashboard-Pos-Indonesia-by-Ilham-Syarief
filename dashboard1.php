@@ -169,7 +169,7 @@ redirectToLogin();
             background-color: #ff6600;
             border-radius: 5px;
             color: white;
-            padding: 10px 40px;
+            padding: 10px 30px;
             border: none;
             cursor: pointer;
         }
@@ -753,6 +753,9 @@ function confirmDelete(link) {
 
 
                 </li>
+                
+                
+                
             </ul>
             <ul class="box-info">
                 <li>
