@@ -9,6 +9,7 @@ $connection = mysqli_connect($host, $username, $password, $database);
 // Check if the connection was successful
 if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
+    
 }
 
 // Get the ID of the record to be deleted
