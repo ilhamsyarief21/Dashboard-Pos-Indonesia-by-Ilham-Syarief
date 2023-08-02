@@ -621,7 +621,7 @@ function confirmDelete(link) {
 
                 // Membuat chart menggunakan Chart.js
                 echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
-                echo '<canvas id="userChart" width="1250" height="450"></canvas>';
+                echo '<canvas id="userChart" width="950" height="350"></canvas>';
                 echo '<script>';
                 echo 'var ctx = document.getElementById("userChart").getContext("2d");';
                 echo 'var userChart = new Chart(ctx, {';
